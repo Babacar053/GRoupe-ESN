@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ═══════════════════ SEO — BASE ═══════════════════ -->
+    <title>Boutique Savonnerie — Moules, Thermomètres & Accessoires | École du Savon du Sénégal</title>
+    <meta name="description" content="Achetez votre matériel de savonnerie à Dakar : moules silicone, thermomètres, balances de précision, kits de protection. Livraison disponible, paiement à la livraison ou par Wave.">
+    <meta name="keywords" content="moule savon Dakar, thermomètre savonnerie, matériel savonnerie Sénégal, accessoires fabrication savon, balance précision savon, boutique savonnerie Dakar">
+    <meta name="author" content="École du Savon du Sénégal">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.ecoledusavon.sn/boutique.html">
+
+    <!-- ═══════════════════ SEO — OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ═══════════════════ -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="École du Savon du Sénégal">
+    <meta property="og:title" content="Boutique Savonnerie — Moules, Thermomètres & Accessoires">
+    <meta property="og:description" content="Tout le matériel pour fabriquer votre savon à Dakar : moules, thermomètres, accessoires. Livraison disponible.">
+    <meta property="og:image" content="https://www.ecoledusavon.sn/images/og-boutique.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.ecoledusavon.sn/boutique.html">
+    <meta property="og:locale" content="fr_SN">
+
+    <!-- ═══════════════════ SEO — TWITTER / X CARD ═══════════════════ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Boutique Savonnerie — École du Savon du Sénégal">
+    <meta name="twitter:description" content="Moules, thermomètres et accessoires de savonnerie, livrés à Dakar.">
+    <meta name="twitter:image" content="https://www.ecoledusavon.sn/images/og-boutique.jpg">
+
+    <!-- ═══════════════════ SEO — GÉOLOCALISATION (référencement local) ═══════════════════ -->
+    <meta name="geo.region" content="SN-DK">
+    <meta name="geo.placename" content="Dakar">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- ═══════════════════ SEO — DONNÉES STRUCTURÉES (Google) ═══════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "Boutique École du Savon du Sénégal",
+      "url": "https://www.ecoledusavon.sn/boutique.html",
+      "description": "Vente de moules, thermomètres et accessoires pour la fabrication artisanale de savon.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dakar",
+        "addressCountry": "SN"
+      },
+      "telephone": "+221776223747",
+      "priceRange": "5000-25000 XOF"
+    }
+    </script>
+
+    <style>
+      /* ─── BANDEAU + NAVBAR (identiques à accueil.html) ─── */
+      .isi-top-bar { background-color:#0d6efd; font-size:13px; padding:8px 0; box-shadow: inset 0 -2px 5px rgba(0,0,0,0.05); }
+      .isi-ticker-wrapper { white-space:nowrap; }
+      .isi-ticker-text { display:inline-block; padding-left:50px; animation: isi-marquee 25s linear infinite; }
+      .isi-top-bar:hover .isi-ticker-text { animation-play-state:paused; cursor:pointer; }
+      @keyframes isi-marquee { 0% { transform:translate3d(0,0,0);} 100% { transform:translate3d(-100%,0,0);} }
+      .navbar-nav .nav-link { font-size:15px; transition:color .2s ease; }
+      .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color:#0d6efd !important; }
+
+      /* ─── BOUTIQUE ─── */
+      .cat-tabs { display:flex; gap:.6rem; flex-wrap:wrap; }
+      .cat-tabs .btn { border-radius:50px; font-weight:600; font-size:.9rem; }
+
+      .produit-card { border:0; border-radius:1rem; overflow:hidden; transition: transform .2s ease, box-shadow .2s ease; height:100%; }
+      .produit-card:hover { transform:translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,.1); }
+      .produit-card .img-wrap { aspect-ratio:1/1; background:#f8f9fa; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+      .produit-card .img-wrap img { width:100%; height:100%; object-fit:cover; }
+      .produit-card .badge-stock { position:absolute; top:10px; left:10px; }
+
+      .cart-fab {
+        position:fixed; bottom:30px; left:30px; z-index:1050;
+        width:60px; height:60px; border-radius:50px; background:#0d6efd; color:#fff;
+        display:flex; align-items:center; justify-content:center; font-size:1.5rem;
+        box-shadow:0 4px 16px rgba(13,110,253,.4); border:none; transition:.25s ease;
+      }
+      .cart-fab:hover { transform:scale(1.08); background:#0b5ed7; }
+      .cart-fab .cart-count {
+        position:absolute; top:-4px; right:-4px; background:#dc3545; color:#fff;
+        font-size:.7rem; font-weight:700; min-width:22px; height:22px; border-radius:50px;
+        display:flex; align-items:center; justify-content:center; padding:0 4px;
+      }
+
+      .cart-item-row { display:flex; gap:.8rem; align-items:center; padding:.75rem 0; border-bottom:1px solid #eee; }
+      .cart-item-row img { width:56px; height:56px; object-fit:cover; border-radius:.5rem; flex-shrink:0; }
+      .qty-btn { width:28px; height:28px; border-radius:50%; border:1px solid #dee2e6; background:#fff; }
+
+      .btn-whatsapp-flottant {
+        position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color:#fff !important;
+        width:60px; height:60px; border-radius:50px; display:flex; align-items:center; justify-content:center;
+        font-size:32px; z-index:9999; text-decoration:none; transition:all .3s ease;
+      }
+      .btn-whatsapp-flottant:hover { background-color:#20ba5a; transform:scale(1.1) translateY(-3px); }
+    </style>
+  </head>
+  <body class="bg-light">
+
+    <!-- BANDEAU -->
+    <div class="isi-top-bar w-100 overflow-hidden text-white fw-semibold">
+      <div class="isi-ticker-wrapper d-flex align-items-center">
+        <div class="isi-ticker-text">🛍️ Bienvenue dans notre boutique ! • 🧴 Moules, thermomètres et accessoires pour savonniers • 🚚 Livraison disponible à Dakar et environs • 💳 Paiement Wave ou à la livraison •&nbsp;</div>
+        <div class="isi-ticker-text" aria-hidden="true">🛍️ Bienvenue dans notre boutique ! • 🧴 Moules, thermomètres et accessoires pour savonniers • 🚚 Livraison disponible à Dakar et environs • 💳 Paiement Wave ou à la livraison •&nbsp;</div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white p-0 shadow-sm">
+      <div class="container-fluid p-0">
+        <a class="navbar-brand fw-bold px-3 py-2 text-success" href="index.html">🧼 École du Savon</a>
+        <button class="navbar-toggler ms-auto border-0 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navBoutique">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navBoutique">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1 px-3">
+            <li class="nav-item"><a class="nav-link fw-bold text-dark px-3" href="index.html"><i class="bi bi-house-fill me-1"></i>Accueil</a></li>
+            <li class="nav-item"><a class="nav-link active fw-bold text-dark px-3" href="boutique.html">Boutique</a></li>
+            <li class="nav-item"><a class="nav-link fw-bold text-dark px-3" href="index.html#inscription">Inscription</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- EN-TÊTE BOUTIQUE -->
+    <header class="container text-center my-5">
+      <h1 class="fw-bold">🛍️ Notre Boutique</h1>
+      <p class="text-muted">Moules, thermomètres et accessoires pour vos fabrications de savon</p>
+    </header>
+
+    <!-- FILTRES CATÉGORIES -->
+    <div class="container mb-4">
+      <div class="cat-tabs justify-content-center" id="catTabs">
+        <button class="btn btn-success" data-cat="tous">Tous les produits</button>
+        <button class="btn btn-outline-success" data-cat="moules">🧊 Moules</button>
+        <button class="btn btn-outline-success" data-cat="thermometres">🌡️ Thermomètres</button>
+        <button class="btn btn-outline-success" data-cat="accessoires">🧰 Accessoires</button>
+      </div>
+    </div>
+
+    <!-- GRILLE PRODUITS -->
+    <main class="container mb-5">
+      <div class="row g-4" id="produitsGrid"></div>
+      <div id="noResults" class="text-center text-muted py-5 d-none">
+        <i class="bi bi-search fs-1"></i>
+        <p class="mt-2">Aucun produit dans cette catégorie pour le moment.</p>
+      </div>
+    </main>
+
+    <!-- BOUTON PANIER FLOTTANT -->
+    <button class="cart-fab" id="openCartBtn" title="Voir mon panier">
+      <i class="bi bi-cart3"></i>
+      <span class="cart-count d-none" id="cartCount">0</span>
+    </button>
+
+    <!-- WHATSAPP FLOTTANT -->
+    <a href="https://wa.me/221776223747" class="btn-whatsapp-flottant shadow-lg" target="_blank" rel="noopener noreferrer" title="Discutez avec nous sur WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- OFFCANVAS PANIER -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title fw-bold">🛒 Mon panier</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <div id="cartItemsList" class="flex-grow-1 overflow-auto"></div>
+        <div class="border-top pt-3 mt-3">
+          <div class="d-flex justify-content-between fw-bold fs-5 mb-3">
+            <span>Total</span>
+            <span id="cartTotal">0 FCFA</span>
+          </div>
+          <button class="btn btn-success w-100 fw-bold mb-2" id="checkoutBtn">Commander</button>
+          <button class="btn btn-outline-secondary w-100" id="clearCartBtn">Vider le panier</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL COMMANDE -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold">Finaliser ma commande</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <form id="commandeForm">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Nom et prénom <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="cmdNom" required placeholder="Ex: Aminata Diop">
+              </div>
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Téléphone <span class="text-danger">*</span></label>
+                <input type="tel" class="form-control" id="cmdTelephone" required placeholder="Ex: 77 622 37 47">
+              </div>
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Adresse de livraison <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="cmdAdresse" required placeholder="Quartier, ville">
+              </div>
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Mode de paiement <span class="text-danger">*</span></label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="paiement" id="payLivraison" value="livraison" checked>
+                  <label class="form-check-label" for="payLivraison">Payer à la livraison</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="paiement" id="payWave" value="wave">
+                  <label class="form-check-label" for="payWave">
+                    Payer par Wave <span class="badge bg-light text-dark border">optionnel</span>
+                  </label>
+                </div>
+              </div>
+              <div class="mb-2">
+                <label class="form-label fw-semibold">Message (optionnel)</label>
+                <textarea class="form-control" id="cmdMessage" rows="2" placeholder="Précisions sur votre commande..."></textarea>
+              </div>
+              <p class="small text-muted mb-0">
+                <i class="bi bi-info-circle"></i>
+                Votre commande sera envoyée sur WhatsApp pour confirmation. Si vous choisissez Wave, le lien de paiement s'ouvrira automatiquement.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success fw-bold w-100">
+                Valider ma commande <i class="fa-brands fa-whatsapp ms-1"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white pt-5 pb-3 mt-5 border-top border-4 border-primary">
+      <div class="container">
+        <div class="row g-4 text-center text-md-start">
+          <div class="col-12 col-md-4">
+            <h5 class="fw-bold text-uppercase text-primary mb-3">École du Savon</h5>
+            <p class="text-secondary small mb-0">Institut de référence au Sénégal pour l'apprentissage des métiers de la savonnerie (SAF et SAC).</p>
+          </div>
+          <div class="col-12 col-md-4">
+            <h5 class="fw-bold text-uppercase text-white mb-3">Liens</h5>
+            <ul class="list-unstyled small d-flex flex-column gap-2">
+              <li><a href="index.html" class="text-secondary text-decoration-none">Accueil</a></li>
+              <li><a href="boutique.html" class="text-secondary text-decoration-none">Boutique</a></li>
+              <li><a href="index.html#inscription" class="text-secondary text-decoration-none">Inscription</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-4">
+            <h5 class="fw-bold text-uppercase text-white mb-3">Contact</h5>
+            <ul class="list-unstyled small d-flex flex-column gap-2 text-secondary">
+              <li><i class="bi bi-telephone-fill text-primary me-2"></i>+221 77 622 37 47</li>
+              <li><i class="bi bi-envelope-fill text-primary me-2"></i>contact@ecoledusavon.sn</li>
+            </ul>
+          </div>
+        </div>
+        <hr class="border-secondary mt-4 mb-3">
+        <div class="text-center small text-secondary">&copy; 2026 École du Savon du Sénégal. Tous droits réservés.</div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      /* =========================================================
+         ⚠️ À REMPLIR : ton lien Wave Business (optionnel).
+         Format habituel : https://pay.wave.com/m/M_sn_XXXXXXXX/c/sn/
+         Tant que c'est vide, le choix "Payer par Wave" affichera
+         un message expliquant que ce mode arrive bientôt.
+      ========================================================= */
+      const WAVE_LINK = ""; // <-- colle ton lien ici entre les guillemets
+
+      const NUMERO_WHATSAPP = "221776223747";
+
+      /* =========================================================
+         PRODUITS
+         Remplace "image" par le chemin réel de tes photos
+         (ex: "produits/moule-rectangle.jpg"). Mets tes fichiers
+         dans un dossier "produits/" à côté de boutique.html.
+      ========================================================= */
+      const produits = [
+        { id: 1, nom: "Moule silicone rectangulaire 1.2kg", categorie: "moules", prix: 18000, image: "produits/moule-rectangle.jpg", desc: "Idéal pour la saponification à froid, démoulage facile.", stock: true },
+        { id: 2, nom: "Moule silicone rond (savons individuels)", categorie: "moules", prix: 8000, image: "produits/moule-rond.jpg", desc: "Lot de 6 empreintes rondes, parfait pour les cadeaux.", stock: true },
+        { id: 3, nom: "Moule bois + liner silicone", categorie: "moules", prix: 25000, image: "produits/moule-bois.jpg", desc: "Structure bois robuste avec liner amovible, grand format.", stock: true },
+        { id: 4, nom: "Thermomètre numérique de cuisine", categorie: "thermometres", prix: 6000, image: "produits/thermometre-numerique.jpg", desc: "Sonde inox, lecture rapide, essentiel pour la SAC.", stock: true },
+        { id: 5, nom: "Thermomètre laser infrarouge", categorie: "thermometres", prix: 12000, image: "produits/thermometre-laser.jpg", desc: "Mesure sans contact, précis pour le suivi de trace.", stock: true },
+        { id: 6, nom: "Mixeur plongeant (mini-fouet)", categorie: "accessoires", prix: 15000, image: "produits/mixeur-plongeant.jpg", desc: "Accélère l'émulsion pour une trace rapide et homogène.", stock: true },
+        { id: 7, nom: "Balance de précision 0.1g", categorie: "accessoires", prix: 10000, image: "produits/balance-precision.jpg", desc: "Indispensable pour peser huiles, soude et actifs.", stock: true },
+        { id: 8, nom: "Kit de protection (gants + lunettes)", categorie: "accessoires", prix: 5000, image: "produits/kit-protection.jpg", desc: "Gants nitrile + lunettes de sécurité anti-projection.", stock: true },
+        { id: 9, nom: "Papier de découpe / trancheur à savon", categorie: "accessoires", prix: 9000, image: "produits/trancheur-savon.jpg", desc: "Pour des barres régulières et un rendu professionnel.", stock: false },
+      ];
+
+      let panier = JSON.parse(localStorage.getItem("panier_boutique")) || [];
+      let categorieActive = "tous";
+
+      /* ─── RENDU PRODUITS ─── */
+      function renderProduits() {
+        const grid = document.getElementById("produitsGrid");
+        const noResults = document.getElementById("noResults");
+        const filtres = categorieActive === "tous" ? produits : produits.filter(p => p.categorie === categorieActive);
+
+        if (filtres.length === 0) {
+          grid.innerHTML = "";
+          noResults.classList.remove("d-none");
+          return;
+        }
+        noResults.classList.add("d-none");
+
+        grid.innerHTML = filtres.map(p => `
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card produit-card shadow-sm position-relative">
+              ${!p.stock ? '<span class="badge bg-secondary badge-stock">Rupture de stock</span>' : ''}
+              <div class="img-wrap">
+                <img src="${p.image}" alt="${escapeHtml(p.nom)}" loading="lazy"
+                     onerror="this.src='https://via.placeholder.com/400x400/f0f0f0/999999?text=Photo+a+venir'">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h6 class="fw-bold mb-1">${escapeHtml(p.nom)}</h6>
+                <p class="text-muted small mb-2">${escapeHtml(p.desc)}</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <span class="fw-bold text-success fs-5">${p.prix.toLocaleString()} FCFA</span>
+                  <button class="btn btn-success btn-sm ${!p.stock ? 'disabled' : ''}" onclick="ajouterAuPanier(${p.id})">
+                    <i class="bi bi-cart-plus"></i> Ajouter
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      function escapeHtml(str) {
+        return String(str).replace(/[&<>"']/g, s => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[s]));
+      }
+
+      /* ─── FILTRES CATÉGORIES ─── */
+      document.querySelectorAll("#catTabs .btn").forEach(btn => {
+        btn.addEventListener("click", function () {
+          document.querySelectorAll("#catTabs .btn").forEach(b => b.classList.replace("btn-success", "btn-outline-success"));
+          this.classList.replace("btn-outline-success", "btn-success");
+          categorieActive = this.dataset.cat;
+          renderProduits();
+        });
+      });
+
+      /* ─── PANIER ─── */
+      window.ajouterAuPanier = function (id) {
+        const produit = produits.find(p => p.id === id);
+        if (!produit || !produit.stock) return;
+        const existant = panier.find(item => item.id === id);
+        if (existant) existant.quantite++;
+        else panier.push({ ...produit, quantite: 1 });
+        sauvegarderPanier();
+        majAffichagePanier();
+        new bootstrap.Offcanvas(document.getElementById("cartOffcanvas")).show();
+      };
+
+      function modifierQuantite(id, delta) {
+        const item = panier.find(i => i.id === id);
+        if (!item) return;
+        item.quantite += delta;
+        if (item.quantite <= 0) panier = panier.filter(i => i.id !== id);
+        sauvegarderPanier();
+        majAffichagePanier();
+      }
+
+      function retirerArticle(id) {
+        panier = panier.filter(i => i.id !== id);
+        sauvegarderPanier();
+        majAffichagePanier();
+      }
+
+      function sauvegarderPanier() {
+        localStorage.setItem("panier_boutique", JSON.stringify(panier));
+      }
+
+      function majAffichagePanier() {
+        const list = document.getElementById("cartItemsList");
+        const totalItems = panier.reduce((s, i) => s + i.quantite, 0);
+        const totalPrix = panier.reduce((s, i) => s + i.prix * i.quantite, 0);
+
+        const countBadge = document.getElementById("cartCount");
+        if (totalItems > 0) {
+          countBadge.textContent = totalItems;
+          countBadge.classList.remove("d-none");
+        } else {
+          countBadge.classList.add("d-none");
+        }
+
+        document.getElementById("cartTotal").textContent = totalPrix.toLocaleString() + " FCFA";
+
+        if (panier.length === 0) {
+          list.innerHTML = '<p class="text-muted text-center py-4">Votre panier est vide.</p>';
+          return;
+        }
+
+        list.innerHTML = panier.map(item => `
+          <div class="cart-item-row">
+            <img src="${item.image}" alt="${escapeHtml(item.nom)}" onerror="this.src='https://via.placeholder.com/56/f0f0f0/999999?text=%20'">
+            <div class="flex-grow-1">
+              <div class="fw-semibold small">${escapeHtml(item.nom)}</div>
+              <div class="text-muted small">${item.prix.toLocaleString()} FCFA</div>
+              <div class="d-flex align-items-center gap-2 mt-1">
+                <button class="qty-btn" onclick="window._modifierQuantite(${item.id}, -1)">−</button>
+                <span>${item.quantite}</span>
+                <button class="qty-btn" onclick="window._modifierQuantite(${item.id}, 1)">+</button>
+                <button class="btn btn-link text-danger p-0 ms-2" onclick="window._retirerArticle(${item.id})"><i class="bi bi-trash"></i></button>
+              </div>
+            </div>
+          </div>
+        `).join("");
+      }
+      window._modifierQuantite = modifierQuantite;
+      window._retirerArticle = retirerArticle;
+
+      document.getElementById("clearCartBtn").addEventListener("click", function () {
+        if (panier.length === 0) return;
+        if (confirm("Vider le panier ?")) {
+          panier = [];
+          sauvegarderPanier();
+          majAffichagePanier();
+        }
+      });
+
+      document.getElementById("openCartBtn").addEventListener("click", function () {
+        new bootstrap.Offcanvas(document.getElementById("cartOffcanvas")).show();
+      });
+
+      /* ─── CHECKOUT ─── */
+      document.getElementById("checkoutBtn").addEventListener("click", function () {
+        if (panier.length === 0) {
+          alert("Votre panier est vide.");
+          return;
+        }
+        bootstrap.Offcanvas.getInstance(document.getElementById("cartOffcanvas"))?.hide();
+        new bootstrap.Modal(document.getElementById("checkoutModal")).show();
+      });
+
+      document.getElementById("commandeForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const nom = document.getElementById("cmdNom").value.trim();
+        const telephone = document.getElementById("cmdTelephone").value.trim();
+        const adresse = document.getElementById("cmdAdresse").value.trim();
+        const message = document.getElementById("cmdMessage").value.trim();
+        const paiement = document.querySelector('input[name="paiement"]:checked').value;
+
+        const totalPrix = panier.reduce((s, i) => s + i.prix * i.quantite, 0);
+        const listeArticles = panier.map(i => `• ${i.nom} x${i.quantite} — ${(i.prix * i.quantite).toLocaleString()} FCFA`).join("\n");
+
+        const texteMessage =
+`🛍️ *Nouvelle commande - Boutique École du Savon* 🛍️
+
+👤 *Client :* ${nom}
+📞 *Téléphone :* ${telephone}
+📍 *Adresse :* ${adresse}
+
+🧾 *Articles :*
+${listeArticles}
+
+💰 *Total : ${totalPrix.toLocaleString()} FCFA*
+💳 *Paiement :* ${paiement === "wave" ? "Wave" : "À la livraison"}
+${message ? "\n📝 *Message :* " + message : ""}`;
+
+        // Si paiement Wave choisi
+        if (paiement === "wave") {
+          if (WAVE_LINK) {
+            window.open(WAVE_LINK, "_blank");
+          } else {
+            alert("Le paiement Wave en ligne arrive bientôt ! Votre commande sera envoyée sur WhatsApp et nous vous enverrons les instructions de paiement Wave directement.");
+          }
+        }
+
+        // Envoi WhatsApp (toujours, pour confirmation de la commande)
+        const urlWhatsApp = "https://wa.me/" + NUMERO_WHATSAPP + "?text=" + encodeURIComponent(texteMessage);
+        window.open(urlWhatsApp, "_blank");
+
+        // Réinitialisation
+        panier = [];
+        sauvegarderPanier();
+        majAffichagePanier();
+        bootstrap.Modal.getInstance(document.getElementById("checkoutModal"))?.hide();
+        this.reset();
+      });
+
+      /* ─── INIT ─── */
+      renderProduits();
+      majAffichagePanier();
+
+    });
+    </script>
+  </body>
+</html>
