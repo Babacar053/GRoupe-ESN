@@ -2,6 +2,15 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
+    <script>
+if (window.location.hostname === "babacar053.github.io") {
+  window.location.replace(
+    "https://ecoledusavon.com" +
+    window.location.pathname.replace("/GRoupe-ESN", "") +
+    window.location.search
+  );
+}
+</script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- ═══════════════════ SEO — BASE ═══════════════════ -->
@@ -171,6 +180,14 @@
       <div class="offcanvas-body d-flex flex-column">
         <div id="cartItemsList" class="flex-grow-1 overflow-auto"></div>
         <div class="border-top pt-3 mt-3">
+          <div class="d-flex justify-content-between small text-muted mb-1">
+            <span>Sous-total</span>
+            <span id="cartSubtotal">0 FCFA</span>
+          </div>
+          <div class="d-flex justify-content-between small text-muted mb-2">
+            <span>Livraison (Dakar)</span>
+            <span id="cartLivraison">2 000 FCFA</span>
+          </div>
           <div class="d-flex justify-content-between fw-bold fs-5 mb-3">
             <span>Total</span>
             <span id="cartTotal">0 FCFA</span>
@@ -222,7 +239,7 @@
               </div>
               <p class="small text-muted mb-0">
                 <i class="bi bi-info-circle"></i>
-                Votre commande sera envoyée sur WhatsApp pour confirmation. Si vous choisissez Wave, le lien de paiement s'ouvrira automatiquement.
+                Livraison à 2 000 FCFA partout à Dakar. Votre commande sera envoyée sur WhatsApp pour confirmation. Si vous choisissez Wave, le lien de paiement s'ouvrira automatiquement.
               </p>
             </div>
             <div class="modal-footer">
@@ -262,7 +279,6 @@
         <hr class="border-secondary mt-4 mb-3">
         <div class="text-center small text-secondary">&copy; 2026 École du Savon du Sénégal. Tous droits réservés.</div>
       </div>
-    
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
@@ -271,20 +287,15 @@
     document.addEventListener("DOMContentLoaded", function () {
 
       /* =========================================================
-         ⚠️ À REMPLIR : ton lien Wave Business (optionnel).
-         Format habituel : https://pay.wave.com/m/M_sn_XXXXXXXX/c/sn/
-         Tant que c'est vide, le choix "Payer par Wave" affichera
-         un message expliquant que ce mode arrive bientôt.
+         ⚠️ Lien Wave Business (corrigé : plus de point/espace final)
       ========================================================= */
-      const WAVE_LINK = "https://pay.wave.com/m/M_sn_Nqb7B31nqJqg/c/sn/. "; // <-- colle ton lien ici entre les guillemets
+      const WAVE_LINK = "https://pay.wave.com/m/M_sn_Nqb7B31nqJqg/c/sn/";
 
       const NUMERO_WHATSAPP = "221776223747";
-      
+      const FRAIS_LIVRAISON = 2000; // Livraison forfaitaire, partout à Dakar
+
       /* =======================================================
          PRODUITS
-         Remplace "image" par le chemin réel de tes photos
-         (ex: "produits/moule-rectangle.jpg"). Mets tes fichiers
-         dans un dossier "produits/" à côté de boutique.html.
       ========================================================= */
       const produits = [
         { id: 1, nom: "Moule silicone rectangulaire 1.2kg", categorie: "moules", prix: 18000, image: "shop/moule.png", desc: "Idéal pour la saponification à froid, démoulage facile.", stock: true },
@@ -385,7 +396,9 @@
       function majAffichagePanier() {
         const list = document.getElementById("cartItemsList");
         const totalItems = panier.reduce((s, i) => s + i.quantite, 0);
-        const totalPrix = panier.reduce((s, i) => s + i.prix * i.quantite, 0);
+        const sousTotal = panier.reduce((s, i) => s + i.prix * i.quantite, 0);
+        const livraison = panier.length > 0 ? FRAIS_LIVRAISON : 0;
+        const totalPrix = sousTotal + livraison;
 
         const countBadge = document.getElementById("cartCount");
         if (totalItems > 0) {
@@ -395,6 +408,8 @@
           countBadge.classList.add("d-none");
         }
 
+        document.getElementById("cartSubtotal").textContent = sousTotal.toLocaleString() + " FCFA";
+        document.getElementById("cartLivraison").textContent = livraison > 0 ? livraison.toLocaleString() + " FCFA" : "—";
         document.getElementById("cartTotal").textContent = totalPrix.toLocaleString() + " FCFA";
 
         if (panier.length === 0) {
@@ -453,7 +468,8 @@
         const message = document.getElementById("cmdMessage").value.trim();
         const paiement = document.querySelector('input[name="paiement"]:checked').value;
 
-        const totalPrix = panier.reduce((s, i) => s + i.prix * i.quantite, 0);
+        const sousTotal = panier.reduce((s, i) => s + i.prix * i.quantite, 0);
+        const totalPrix = sousTotal + FRAIS_LIVRAISON;
         const listeArticles = panier.map(i => `• ${i.nom} x${i.quantite} — ${(i.prix * i.quantite).toLocaleString()} FCFA`).join("\n");
 
         const texteMessage =
@@ -466,6 +482,7 @@
 🧾 *Articles :*
 ${listeArticles}
 
+🚚 *Livraison : ${FRAIS_LIVRAISON.toLocaleString()} FCFA*
 💰 *Total : ${totalPrix.toLocaleString()} FCFA*
 💳 *Paiement :* ${paiement === "wave" ? "Wave" : "À la livraison"}
 ${message ? "\n📝 *Message :* " + message : ""}`;
