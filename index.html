@@ -46,6 +46,9 @@ if (window.location.hostname === "babacar053.github.io") {
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
 
     <!-- ═══════════════════ SEO — DONNÉES STRUCTURÉES (Google) ═══════════════════ -->
@@ -153,101 +156,203 @@ if (window.location.hostname === "babacar053.github.io") {
 
   </head>
   <style>
-    /* Conteneur individuel pour chaque logo de partenaire */
-.partenaire-box {
-width: 200px;
-height: 120px;
-background-color: #ffffff;
-border: 1px solid #f0f0f0;
-display: flex;
-align-items: center;
-justify-content: center;
-transition: transform 0.3s ease;
-}
 
-/* Effet discret au survol de la souris */
-.partenaire-box:hover {
-transform: scale(1.05);
-}
+    /* ═══════════════════════════════════════════════════════════
+       TOKENS — palette inspirée des matières premières de la
+       savonnerie : karité, huile d'olive, argile, miel.
+    ═══════════════════════════════════════════════════════════ */
+    :root {
+      --savon-cream:      #F6EFDE;
+      --savon-cream-deep: #ECE0C4;
+      --savon-ink:        #2E2A24;
+      --savon-ink-soft:    #5B5448;
+      --savon-olive:       #55613B;
+      --savon-olive-dark:  #414A2E;
+      --savon-olive-tint:  #E3E7D6;
+      --savon-clay:        #B5581F;
+      --savon-clay-dark:   #8F4517;
+      --savon-clay-tint:   #F3DFC9;
+      --savon-gold:        #C08A2A;
+      --savon-gold-dark:   #96691E;
+      --savon-gold-tint:   #F1E3C0;
+      --savon-radius:      1.1rem;
+      --savon-radius-lg:   1.6rem;
+    }
 
-/* Homogénéisation des dimensions de l'image du logo */
-.logo-partenaire {
-max-width: 100%;
-max-height: 90px;
-object-fit: contain; /* Évite d'écraser ou d'étirer le logo */
-}
+    * { scroll-behavior: smooth; }
 
-/* Style personnalisé pour les flèches de navigation du carrousel */
-.custom-control {
-width: 5%;
-}
-.custom-control-icon {
-filter: invert(1); /* Rend les icônes blanches visibles si fond sombre, ou ajustez selon besoin */
-}/* Style du bouton flottant WhatsApp */
-.faq-item {
-  border: 1px solid rgba(0,0,0,0.06);
-}
-.faq-item summary {
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-.faq-item summary::after {
-  content: "+";
-  font-size: 1.4rem;
-  color: #0d6efd;
-  transition: transform 0.2s ease;
-}
-.faq-item[open] summary::after {
-  content: "−";
-}
+    body {
+      background-color: var(--savon-cream);
+      color: var(--savon-ink);
+      font-family: 'Work Sans', -apple-system, sans-serif;
+    }
 
-.btn-whatsapp-flottant {
-position: fixed;
-bottom: 30px;
-right: 30px;
-background-color: #25d366;
-color: #ffffff !important;
-width: 60px;
-height: 60px;
-border-radius: 50px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 32px;
-z-index: 9999;
-text-decoration: none;
-transition: all 0.3s ease;
-}
+    h1, h2, h3, h4, h5, .navbar-brand, .display-serif {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--savon-ink);
+    }
 
-/* Effet de survol et légère impulsion visuelle */
-.btn-whatsapp-flottant:hover {
-background-color: #20ba5a;
-transform: scale(1.1) translateY(-3px);
-}
+    p, li { color: var(--savon-ink-soft); }
 
-/* Style des initiales dans les cercles de témoignages */
-.rounded-circle {
-flex-shrink: 0;
-}
+    a { color: var(--savon-olive); }
+    a:hover { color: var(--savon-olive-dark); }
 
+    /* ─── BANDEAU DÉFILANT ─── */
+    .isi-top-bar {
+      background: linear-gradient(90deg, var(--savon-ink) 0%, var(--savon-olive-dark) 100%);
+      font-size: 13px;
+      padding: 9px 0;
+      letter-spacing: .01em;
+    }
+    .isi-ticker-wrapper { white-space: nowrap; }
+    .isi-ticker-text { display: inline-block; padding-left: 50px; animation: isi-marquee 28s linear infinite; color: var(--savon-cream); }
+    .isi-top-bar:hover .isi-ticker-text { animation-play-state: paused; cursor: pointer; }
+    @keyframes isi-marquee { 0% { transform: translate3d(0,0,0);} 100% { transform: translate3d(-100%,0,0);} }
+
+    /* ─── NAVBAR ─── */
+    .navbar { background-color: var(--savon-cream) !important; border-bottom: 1px solid var(--savon-cream-deep); }
+    .navbar-brand { font-size: 1.3rem; display: flex; align-items: center; gap: .5rem; }
+    .brand-mark {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--savon-olive); color: var(--savon-cream);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    <!-- LOGO : remplace le contenu de .brand-mark ci-dessus par
+         <img src="images/logo.png" alt="École du Savon" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+         une fois ton logo prêt. -->
+    .navbar-nav .nav-link { font-size: 15px; font-weight: 600; color: var(--savon-ink) !important; transition: color .2s ease; }
+    .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: var(--savon-clay) !important; }
+    .dropdown-menu .dropdown-item:hover { background-color: var(--savon-cream-deep); }
+    @media (min-width: 992px) {
+      .custom-dropdown:hover .dropdown-menu {
+        display: block; margin-top: 0;
+        border-top: 3px solid var(--savon-clay) !important;
+      }
+    }
+
+    /* ─── BOUTONS (recolorés, forme pilule cohérente) ─── */
+    .btn { border-radius: 50px; font-weight: 600; }
+    .btn-success { background-color: var(--savon-olive); border-color: var(--savon-olive); color: #fff; }
+    .btn-success:hover, .btn-success:focus { background-color: var(--savon-olive-dark); border-color: var(--savon-olive-dark); color: #fff; }
+    .btn-outline-success { color: var(--savon-olive); border-color: var(--savon-olive); }
+    .btn-outline-success:hover { background-color: var(--savon-olive); border-color: var(--savon-olive); color: #fff; }
+    .btn-primary { background-color: var(--savon-clay); border-color: var(--savon-clay); color: #fff; }
+    .btn-primary:hover, .btn-primary:focus { background-color: var(--savon-clay-dark); border-color: var(--savon-clay-dark); color: #fff; }
+    .btn-outline-primary { color: var(--savon-clay); border-color: var(--savon-clay); }
+    .btn-outline-primary:hover { background-color: var(--savon-clay); border-color: var(--savon-clay); color: #fff; }
+    .btn-danger { background-color: var(--savon-gold); border-color: var(--savon-gold); color: var(--savon-ink); }
+    .btn-danger:hover, .btn-danger:focus { background-color: var(--savon-gold-dark); border-color: var(--savon-gold-dark); color: #fff; }
+    .btn-outline-secondary { color: var(--savon-ink-soft); border-color: var(--savon-ink-soft); }
+
+    /* ─── COULEURS DE TEXTE / FONDS (mappent les classes déjà utilisées dans le HTML et le JS) ─── */
+    .text-success { color: var(--savon-olive) !important; }
+    .text-primary { color: var(--savon-clay) !important; }
+    .text-danger  { color: var(--savon-gold-dark) !important; }
+    .bg-success-subtle { background-color: var(--savon-olive-tint) !important; }
+    .bg-primary-subtle { background-color: var(--savon-clay-tint) !important; }
+    .bg-danger-subtle  { background-color: var(--savon-gold-tint) !important; }
+    .border-success-subtle { border-color: #887ddd !important; }
+    .border-primary-subtle { border-color: #E4C7A9 !important; }
+    .border-danger-subtle  { border-color: #E5D2A1 !important; }
+    .bg-primary { background-color: var(--savon-clay) !important; }
+    .bg-danger  { background-color: var(--savon-gold) !important; color: var(--savon-ink); }
+    .border-primary { border-color: var(--savon-clay) !important; }
+    .bg-light { background-color: var(--savon-cream-deep) !important; }
+
+    /* ─── CARROUSEL PRINCIPAL ─── */
+    #carouselExampleAutoplaying { border-radius: var(--savon-radius-lg); overflow: hidden; margin-top: 1.5rem; }
+    #carouselExampleAutoplaying .carousel-item img { max-height: 480px; object-fit: cover; }
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+      background-color: rgba(46,42,36,.55); border-radius: 50%; padding: 20px; background-size: 45%;
+    }
+
+    /* ─── CARTES FORMATIONS ─── */
+    .formation-card {
+      border: 1px solid var(--savon-cream-deep) !important;
+      border-radius: var(--savon-radius-lg) !important;
+      background-color: #fff;
+      box-shadow: 0 10px 30px -18px rgba(46,42,36,.35);
+      transition: transform .25s ease, box-shadow .25s ease;
+      overflow: hidden;
+    }
+    .formation-card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px -16px rgba(46,42,36,.4); }
+    .formation-card .card-img-top { height: 190px; object-fit: cover; }
+
+    /* ─── SECTION ACCESSIBILITÉ ─── */
+    .profile-box { border: 1px solid var(--savon-cream-deep); border-radius: var(--savon-radius-lg); background: #fff; }
+    .profile-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; margin: 0 auto;
+    }
+    .profile-icon.olive { background: var(--savon-olive-tint); color: var(--savon-olive-dark); }
+    .profile-icon.clay  { background: var(--savon-clay-tint); color: var(--savon-clay-dark); }
+    .profile-icon.gold  { background: var(--savon-gold-tint); color: var(--savon-gold-dark); }
+
+    .reassurance-pill {
+      background: #fff; border: 1px solid var(--savon-cream-deep);
+      border-radius: 50px; padding: .65rem 1.25rem;
+      display: inline-flex; align-items: center; gap: .6rem;
+    }
+
+    /* ─── TÉMOIGNAGES ─── */
+    #temoignages { background-color: var(--savon-cream-deep) !important; }
+    #temoignages .card { border: 1px solid #ddcfa9 !important; border-radius: var(--savon-radius-lg); }
+
+    /* ─── FAQ ─── */
+    .faq-item { border: 1px solid var(--savon-cream-deep) !important; border-radius: var(--savon-radius) !important; background: #fff; }
+    .faq-item summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-family: 'Fraunces', serif; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: "+"; font-size: 1.4rem; color: var(--savon-clay); transition: transform .2s ease;
+    }
+    .faq-item[open] summary::after { content: "−"; }
+
+    /* ─── PARTENAIRES ─── */
+    .partenaire-box {
+      width: 200px; height: 120px; background-color: #ffffff;
+      border: 1px solid var(--savon-cream-deep); border-radius: var(--savon-radius);
+      display: flex; align-items: center; justify-content: center; transition: transform .3s ease;
+    }
+    .partenaire-box:hover { transform: scale(1.05); }
+    .logo-partenaire { max-width: 100%; max-height: 90px; object-fit: contain; }
+    .custom-control { width: 5%; }
+
+    /* ─── INSCRIPTION ─── */
+    #inscription .card { border: 1px solid var(--savon-cream-deep) !important; border-radius: var(--savon-radius-lg) !important; }
+
+    /* ─── WHATSAPP FLOTTANT ─── */
+    .btn-whatsapp-flottant {
+      position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: #fff !important;
+      width: 60px; height: 60px; border-radius: 50px; display: flex; align-items: center; justify-content: center;
+      font-size: 30px; z-index: 9999; text-decoration: none; box-shadow: 0 10px 24px -8px rgba(37,211,102,.6);
+      transition: all .3s ease;
+    }
+    .btn-whatsapp-flottant:hover { background-color: #20ba5a; transform: scale(1.08) translateY(-3px); }
+
+    /* ─── FOOTER ─── */
+    footer.bg-dark { background-color: var(--savon-ink) !important; }
+    footer .text-primary { color: var(--savon-gold) !important; }
+    footer p, footer li, footer span { color: #C9C2B4; }
+    .text-white-hover:hover { color: #ffffff !important; padding-left: 4px; transition: all .2s ease; }
+    .text-primary-hover:hover { color: var(--savon-gold) !important; transition: color .2s ease; }
+    .text-success-hover:hover { color: #25d366 !important; transition: color .2s ease; }
+    footer ul li a { transition: all .2s ease; }
+    .rounded-circle { flex-shrink: 0; }
 
   </style>
   <body>
     <!-- =================================================================================== -->
-<!-- BANDEAU INFO DÉFILANT (TOP BAR STYLE GROUPE ISI) -->
+<!-- BANDEAU INFO DÉFILANT -->
 <!-- =================================================================================== -->
-<div class="isi-top-bar w-100 overflow-hidden text-white fw-semibold">
+<div class="isi-top-bar w-100 overflow-hidden fw-semibold">
 <div class="isi-ticker-wrapper d-flex align-items-center">
   <div class="isi-ticker-text">
     ✨ Bienvenue sur notre plateforme de formation ! • 🌿 Inscriptions ouvertes pour les prochains modules en Saponification à Froid (SAF) et à Chaud (SAC) • 🎓 Obtenez votre diplôme certifié en 3 jours intensifs ! • 🚀 Boostez vos compétences et lancez votre business dès aujourd'hui ! • 
   </div>
-  <!-- On duplique le texte pour créer un effet de boucle continue sans coupure -->
   <div class="isi-ticker-text" aria-hidden="true">
     ✨ Bienvenue sur notre plateforme de formation ! • 🌿 Inscriptions ouvertes pour les prochains modules en Saponification à Froid (SAF) et à Chaud (SAC) • 🎓 Obtenez votre diplôme certifié en 3 jours intensifs ! • 🚀 Boostez vos compétences et lancez votre business dès aujourd'hui ! • 
   </div>
@@ -255,160 +360,68 @@ flex-shrink: 0;
 </div>
 
 <!-- =================================================================================== -->
-<!-- STYLE CSS (À mettre dans votre fichier de styles ou balise <style>) -->
+<!-- BARRE DE NAVIGATION -->
 <!-- =================================================================================== -->
-<style>
-/* Style et couleurs de l'arrière-plan du bandeau */
-.isi-top-bar {
-  background-color: #0d6efd; /* Bleu institutionnel (ou #198754 pour du vert SAF) */
-  font-size: 13px;  
-  padding: 8px 0;
-  box-shadow: inset 0 -2px 5px rgba(0,0,0,0.05);
-}
-
-
-/* Conteneur de l'animation */
-.isi-ticker-wrapper {
-  white-space: nowrap;
-}
-
-/* Configuration du défilement continu */
-.isi-ticker-text {
-  display: inline-block;
-  padding-left: 50px; /* Espace entre les phrases */
-  animation: isi-marquee 25s linear infinite;
-}
-
-/* Arrête le défilement si l'utilisateur pose sa souris dessus (astuce marketing) */
-.isi-top-bar:hover .isi-ticker-text {
-  animation-play-state: paused;
-  cursor: pointer;
-}
-
-/* L'animation CSS moderne pour un mouvement parfaitement fluide */
-@keyframes isi-marquee {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-100%, 0, 0); }
-
-}
-/* Effets de couleurs fluides au survol des liens du Footer */
-.text-white-hover:hover {
-color: #ffffff !important;
-padding-left: 4px;
-transition: all 0.2s ease;
-}
-.text-primary-hover:hover {
-color: #0d6efd !important;
-transition: color 0.2s ease;
-}
-.text-success-hover:hover {
-color: #25d366 !important;
-transition: color 0.2s ease;
-}
-footer ul li a {
-transition: all 0.2s ease;
-}
-
-</style>
-
-<!-- =================================================================================== -->
-<!-- BARRE DE NAVIGATION COMMERCIALE (STYLE ISI - ALIGNÉE À DROITE AVEC SURVOL) -->
-<!-- =================================================================================== -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white p-0">
+<nav class="navbar navbar-expand-lg navbar-light p-0">
 <div class="container-fluid p-0">
-  
-  <!-- Bouton Mobile (Hamburger) -->
-  <button class="navbar-toggler ms-auto border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContentCosmetique" aria-controls="navContentCosmetique" aria-expanded="false" aria-label="Toggle navigation">
+
+  <a class="navbar-brand fw-bold px-3 py-2" href="#">
+    <span class="brand-mark"><i class="fa-solid fa-mortar-pestle"></i></span>
+    École du Savon
+  </a>
+
+  <button class="navbar-toggler ms-auto border-0 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navContentCosmetique" aria-controls="navContentCosmetique" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <!-- Les liens de navigation poussés vers la droite grâce à ms-auto -->
   <div class="collapse navbar-collapse" id="navContentCosmetique">
-    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
-      
-      <!-- Accueil -->
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1 px-3">
+
       <li class="nav-item">
-        <a class="nav-link active fw-bold text-dark px-3" aria-current="page" href="#">
-          <i class="bi bi-house-fill me-1"></i> Accueil
+        <a class="nav-link active fw-bold px-3" aria-current="page" href="#">
+          <i class="fa-solid fa-house me-1"></i> Accueil
         </a>
       </li>
 
-      <!-- Menu déroulant au survol : Groupe ESN -->
       <li class="nav-item dropdown custom-dropdown">
-        <a class="nav-link dropdown-toggle fw-bold text-dark px-3" href="#" id="esnDrop" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle fw-bold px-3" href="#" id="esnDrop" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Groupe ESN
         </a>
-    <ul class="dropdown-menu border-0 shadow-sm rounded-3 dropdown-menu-end" aria-labelledby="esnDrop">
-<!-- L'attribut onclick appelle la fonction JavaScript avec les bons paramètres -->
-<li>
-  <a class="dropdown-item py-2 fw-semibold"
-    href="javascript:void(0)"
-    onclick="afficherPresentation()">
-      📖 Présentation
-  </a>
-</li>
-<li><a class="dropdown-item py-2 fw-semibold" href="#" onclick="afficherPage('esn', 'mot-pdg')">💬 Mot du PDG</a></li>
-<li><a class="dropdown-item py-2 fw-semibold" href="#" onclick="afficherPage('esn', 'administration')">🏢 Administration</a></li>
-</ul>
-
+        <ul class="dropdown-menu border-0 shadow-sm rounded-3 dropdown-menu-end" aria-labelledby="esnDrop">
+          <li>
+            <a class="dropdown-item py-2 fw-semibold" href="javascript:void(0)" onclick="afficherPresentation()">
+              <i class="fa-regular fa-address-card me-2"></i>Présentation
+            </a>
+          </li>
+          <li><a class="dropdown-item py-2 fw-semibold" href="#" onclick="afficherPage('esn', 'mot-pdg')"><i class="fa-regular fa-comment-dots me-2"></i>Mot du PDG</a></li>
+          <li><a class="dropdown-item py-2 fw-semibold" href="#" onclick="afficherPage('esn', 'administration')"><i class="fa-regular fa-building me-2"></i>Administration</a></li>
+        </ul>
       </li>
 
-      <!-- Menu déroulant au survol : Nos Formations -->
       <li class="nav-item dropdown custom-dropdown">
-        <a class="nav-link dropdown-toggle fw-bold text-dark px-3" href="#" id="formationsDrop" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle fw-bold px-3" href="#" id="formationsDrop" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Nos Formations
         </a>
         <ul class="dropdown-menu border-0 shadow-sm rounded-3 dropdown-menu-end" aria-labelledby="formationsDrop">
-          <li><a class="dropdown-item py-2 fw-semibold text-success" href="#saf-card">🌿 Saponification à Froid (SAF)</a></li>
-          <li><a class="dropdown-item py-2 fw-semibold text-primary" href="#sac-card">⚡ Saponification à Chaud (SAC)</a></li>
+          <li><a class="dropdown-item py-2 fw-semibold text-success" href="#saf-card"><i class="fa-solid fa-leaf me-2"></i>Saponification à Froid (SAF)</a></li>
+          <li><a class="dropdown-item py-2 fw-semibold text-primary" href="#sac-card"><i class="fa-solid fa-fire me-2"></i>Saponification à Chaud (SAC)</a></li>
           <li><hr class="dropdown-divider my-1"></li>
-          <li><a class="dropdown-item py-2 fw-bold text-danger" href="#pack-card">🔥 Pack Complet (SAF + SAC)</a></li>
+          <li><a class="dropdown-item py-2 fw-bold text-danger" href="#pack-card"><i class="fa-solid fa-star me-2"></i>Pack Complet (SAF + SAC)</a></li>
         </ul>
       </li>
-          
-      <!-- Boutique -->
+
       <li class="nav-item">
-        <a class="nav-link fw-bold text-dark px-3" href="boutique.html">Boutique</a>
+        <a class="nav-link fw-bold px-3" href="boutique.html">Boutique</a>
       </li>
 
-      <!-- Inscription -->
       <li class="nav-item">
-        <a class="nav-link fw-bold text-dark px-3" href="#inscription">Inscription</a>
+        <a class="nav-link fw-bold px-3" href="#inscription">Inscription</a>
       </li>
 
     </ul>
   </div>
 </div>
 </nav>
-
-<!-- =================================================================================== -->
-<!-- CODE CSS ASSOCIÉ (Pour l'effet de survol automatique et l'alignement de la ligne) -->
-<!-- =================================================================================== -->
-<style>
-/* Déclenche l'affichage du sous-menu dès le passage de la souris */
-@media (min-width: 992px) {
-  .custom-dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
-    border-top: 3px solid #0d6efd !important; /* Petite bordure bleue style ISI */
-  }
-}
-
-/* Style global pour les liens de votre menu */
-.navbar-nav .nav-link {
-  font-size: 15px;
-  transition: color 0.2s ease;
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  color: #0d6efd !important; /* Couleur d'activation lors du survol */
-}
-
-.dropdown-menu .dropdown-item:hover {
-  background-color: #f8f9fa;
-}
-</style>
 
 
 
@@ -417,7 +430,7 @@ transition: all 0.2s ease;
 
 <!-- ==================== CAROUSEL ======================== -->
 <div id="carouselExampleAutoplaying"
-  class="carousel slide"
+  class="carousel slide container"
   data-bs-ride="carousel"
   data-bs-interval="5000">
 
@@ -446,22 +459,18 @@ transition: all 0.2s ease;
 
 </div>
 
-<!-- Bouton précédent -->
 <button class="carousel-control-prev"
         type="button"
         data-bs-target="#carouselExampleAutoplaying"
         data-bs-slide="prev">
-
   <span class="carousel-control-prev-icon"></span>
   <span class="visually-hidden">Précédent</span>
 </button>
 
-<!-- Bouton suivant -->
 <button class="carousel-control-next"
         type="button"
         data-bs-target="#carouselExampleAutoplaying"
         data-bs-slide="next">
-
   <span class="carousel-control-next-icon"></span>
   <span class="visually-hidden">Suivant</span>
 </button>
@@ -472,10 +481,10 @@ transition: all 0.2s ease;
 <!-- =======================================================================           -->
 <section id="formations-section" class="container my-5">
 
-<h1 class="text-center mt-4 fw-bold">
+<h1 class="text-center mt-4">
 Formation en Production de Savon au Sénégal
 </h1>
-<p class="text-center text-muted mb-5 mx-auto" style="max-width:700px;">
+<p class="text-center mb-5 mx-auto" style="max-width:700px;">
 Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en production de savon</strong> — aussi appelée <strong>formation en fabrication de savon</strong> ou <strong>formation en savonnerie</strong> — certifiante et pratique, avec deux techniques enseignées : la <strong>formation en saponification à froid</strong> et la <strong>formation en saponification à chaud</strong>. Ouverte aux débutants comme aux porteurs de projet à travers tout le Sénégal.
 </p>
 
@@ -483,7 +492,7 @@ Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en
 
 <!-- CARTE SAF -->
 <div id="saf-card"
-     class="card formation-card shadow-sm"
+     class="card formation-card"
      style="width: 18rem; cursor:pointer;"
      onclick="afficherFormation('saf')">
 
@@ -497,7 +506,7 @@ Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en
 
       <div class="d-flex justify-content-between align-items-center mb-2">
         <span class="badge bg-success-subtle text-success border border-success-subtle">
-          ⏱️ 3 Jours
+          <i class="fa-regular fa-clock me-1"></i>3 Jours
         </span>
       </div>
 
@@ -505,7 +514,7 @@ Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en
         Métier de Saponification à froid (SAF)
       </h4>
 
-      <p class="card-text text-muted small mt-2">
+      <p class="card-text small mt-2">
         L'artisan savonnier en SAF conçoit, fabrique et commercialise
         des savons sans cuisson. Un métier passion alliant rigueur
         scientifique, savoir-faire artisanal et compétences
@@ -538,7 +547,7 @@ Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en
 
 <!-- CARTE SAC -->
 <div id="sac-card"
-     class="card formation-card shadow-sm"
+     class="card formation-card"
      style="width: 18rem; cursor:pointer;"
      onclick="afficherFormation('sac')">
 
@@ -553,7 +562,7 @@ Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en
       <div class="d-flex justify-content-between align-items-center mb-2">
 
         <span class="badge bg-primary-subtle text-primary border border-primary-subtle">
-          ⏱️ 3 Jours
+          <i class="fa-regular fa-clock me-1"></i>3 Jours
         </span>
 
       </div>
@@ -562,7 +571,7 @@ Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en
         Métier de Saponification à chaud (SAC)
       </h4>
 
-      <p class="card-text text-muted small mt-2">
+      <p class="card-text small mt-2">
         Ce savoir-faire repose sur la cuisson au chaudron.
         Cette méthode permet de fabriquer du savon rapidement
         et de maîtriser la production.
@@ -598,7 +607,7 @@ Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en
 
 <!-- CARTE PACK -->
 <div id="pack-card"
-     class="card formation-card shadow-sm"
+     class="card formation-card"
      style="width: 18rem; cursor:pointer;"
      onclick="afficherFormation('pack')">
 
@@ -613,20 +622,20 @@ Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en
       <div class="d-flex justify-content-between align-items-center mb-2">
 
         <span class="badge bg-danger-subtle text-danger border border-danger-subtle">
-          ⏱️ 3 Jours
+          <i class="fa-regular fa-clock me-1"></i>3 Jours
         </span>
 
-        <span class="badge bg-danger text-white rounded-pill small">
-          🔥 Meilleure Offre
+        <span class="badge bg-danger rounded-pill small">
+          <i class="fa-solid fa-star me-1"></i>Meilleure Offre
         </span>
 
       </div>
 
-      <h4 class="fw-bold text-dark">
+      <h4 class="fw-bold">
         Expert Global : SAF ET SAC
       </h4>
 
-      <p class="card-text text-muted small mt-2">
+      <p class="card-text small mt-2">
         Devenez l'artisan le plus complet du marché en maîtrisant
         les deux techniques piliers de la savonnerie.
       </p>
@@ -649,7 +658,7 @@ Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en
 
       <a href="#inscription"
          onclick="event.stopPropagation()"
-         class="btn btn-danger w-100 btn-sm fw-bold shadow-sm">
+         class="btn btn-danger w-100 btn-sm fw-bold">
         Réserver le Pack Complet
       </a>
 
@@ -670,11 +679,10 @@ Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en
 <section id="formation-detail"
      class="container my-5 d-none">
 
-<div class="card shadow border-0 overflow-hidden">
+<div class="card formation-card overflow-hidden">
 
 <div class="row g-0">
 
-  <!-- IMAGE -->
   <div class="col-12 col-md-6">
 
     <img id="detail-image"
@@ -686,7 +694,6 @@ Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en
   </div>
 
 
-  <!-- CONTENU -->
   <div class="col-12 col-md-6">
 
     <div class="card-body p-4 p-md-5">
@@ -699,8 +706,7 @@ Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en
           class="fw-bold">
       </h2>
 
-      <p id="detail-description"
-         class="text-muted">
+      <p id="detail-description">
       </p>
 
       <hr>
@@ -709,8 +715,7 @@ Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en
         Ce que vous allez apprendre
       </h5>
 
-      <ul id="detail-list"
-          class="text-muted">
+      <ul id="detail-list">
       </ul>
 
       <div class="mt-4">
@@ -734,7 +739,7 @@ Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en
 
         <button onclick="retourAccueil()"
                 class="btn btn-outline-secondary">
-          ← Retour
+          <i class="fa-solid fa-arrow-left me-1"></i>Retour
         </button>
 
       </div>
@@ -751,143 +756,72 @@ Basée à Dakar, l'École du Savon du Sénégal propose une <strong>formation en
 
   
 <!-- =================================================================================== -->
-<!-- SECTION : ACCESSIBILITÉ & MARKETING (DES FORMATIONS POUR TOUS) -->
+<!-- SECTION : ACCESSIBILITÉ & MARKETING -->
 <!-- =================================================================================== -->
-<section class="bg-light py-5 mt-5 rounded-4 shadow-sm container">
+<section class="py-5 mt-5 rounded-4 container" style="background-color: var(--savon-cream-deep);">
 <div class="row justify-content-center text-center mb-4">
   <div class="col-12 col-md-8">
-    <span class="text-success fw-bold text-uppercase tracking-wider">Aucun prérequis requis</span>
+    <span class="text-success fw-bold">Aucun prérequis requis</span>
     <h2 class="fw-bold mt-2">Des formations adaptées à tout le monde</h2>
-    <p class="text-muted">Que vous soyez grand débutant ou en reconversion, nos méthodes pédagogiques s'adaptent à votre rythme et à vos ambitions.</p>
+    <p>Que vous soyez grand débutant ou en reconversion, nos méthodes pédagogiques s'adaptent à votre rythme et à vos ambitions.</p>
   </div>
 </div>
 
-<!-- Grille des profils cibles (Qui peut participer ?) -->
 <div class="row g-4 justify-content-center px-2">
   
-  <!-- Profil 1 : Les Particuliers / Passionnés -->
   <div class="col-12 col-sm-6 col-lg-4">
-    <div class="p-4 bg-white h-100 rounded-3 text-center border-0 shadow-sm">
+    <div class="p-4 profile-box h-100 text-center">
       <div class="mb-3">
-        <!-- Icône ou emoji visuel -->
-        <span class="fs-1">🌿</span>
+        <span class="profile-icon olive"><i class="fa-solid fa-leaf"></i></span>
       </div>
       <h5 class="fw-bold text-success">Passionnés de Cosmétique & DIY</h5>
-      <p class="text-muted small mb-0">Envie d'adopter une routine zéro déchet et saine pour votre famille ? Apprenez à concevoir vos propres produits 100% naturels en toute confiance et en toute sécurité.</p>
+      <p class="small mb-0">Envie d'adopter une routine zéro déchet et saine pour votre famille ? Apprenez à concevoir vos propres produits 100% naturels en toute confiance et en toute sécurité.</p>
     </div>
   </div>
 
-  <!-- Profil 2 : Les Porteurs de projet / Reconversion -->
   <div class="col-12 col-sm-6 col-lg-4">
-    <div class="p-4 bg-white h-100 rounded-3 text-center border-0 shadow-sm">
+    <div class="p-4 profile-box h-100 text-center">
       <div class="mb-3">
-        <span class="fs-1">💼</span>
+        <span class="profile-icon clay"><i class="fa-solid fa-briefcase"></i></span>
       </div>
       <h5 class="fw-bold text-primary">Entrepreneurs & Reconversion</h5>
-      <p class="text-muted small mb-0">Vous souhaitez lancer votre marque de cosmétiques solides ? Nous vous transmettons les bases de la formulation, de la gestion des stocks et de la rentabilité financière.</p>
+      <p class="small mb-0">Vous souhaitez lancer votre marque de cosmétiques solides ? Nous vous transmettons les bases de la formulation, de la gestion des stocks et de la rentabilité financière.</p>
     </div>
   </div>
 
-  <!-- Profil 3 : Les Professionnels de la coiffure et esthétique -->
   <div class="col-12 col-sm-6 col-lg-4">
-    <div class="p-4 bg-white h-100 rounded-3 text-center border-0 shadow-sm">
+    <div class="p-4 profile-box h-100 text-center">
       <div class="mb-3">
-        <span class="fs-1">✨</span>
+        <span class="profile-icon gold"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
       </div>
-      <h5 class="fw-bold text-dark">Salons de Beauté & Artisans</h5>
-      <p class="text-muted small mb-0">Diversifiez vos revenus ! Intégrez des savons artisanaux haut de gamme et personnalisés faits maison à votre catalogue pour fidéliser et surprendre votre clientèle existante.</p>
+      <h5 class="fw-bold">Salons de Beauté & Artisans</h5>
+      <p class="small mb-0">Diversifiez vos revenus ! Intégrez des savons artisanaux haut de gamme et personnalisés faits maison à votre catalogue pour fidéliser et surprendre votre clientèle existante.</p>
     </div>
   </div>
 
 </div>
 
-<!-- Argument de réassurance final & Certification -->
-<div class="text-center mt-5 pt-4 border-top border-2 border-white">
-  <div class="d-flex flex-wrap justify-content-center gap-4 align-items-center">
-    
-    <!-- Bloc Matériel fourni -->
-    <p class="fw-semibold text-dark mb-0">
-      🛡️ <span class="text-success">Zéro stress :</span> Les matières premières, les moules et les équipements de sécurité sont <strong>intégralement fournis</strong> !
-    </p>
-    
-    <!-- Séparateur vertical sur grand écran -->
-    <div class="d-none d-md-block bg-secondary-subtle" style="width: 2px; height: 30px;"></div>
-    
-    <!-- Bloc Diplôme / Certificat (Le point clé marketing) -->
-    <p class="fw-semibold text-dark mb-0">
-      🎓 <span class="text-primary">Réussite garantie :</span> Un <strong>diplôme certifié</strong> vous sera officiellement remis à la fin de la formation pour valoriser vos compétences !
-    </p>
+<div class="text-center mt-5 pt-4 border-top border-2" style="border-color:#ddcfa9 !important;">
+  <div class="d-flex flex-wrap justify-content-center gap-3 align-items-center">
+
+    <span class="reassurance-pill">
+      <i class="fa-solid fa-shield-halved text-success"></i>
+      <span class="fw-semibold"><span class="text-success">Zéro stress :</span> matières premières, moules et équipements de sécurité <strong>intégralement fournis</strong></span>
+    </span>
+
+    <span class="reassurance-pill">
+      <i class="fa-solid fa-graduation-cap text-primary"></i>
+      <span class="fw-semibold"><span class="text-primary">Réussite garantie :</span> <strong>diplôme certifié</strong> remis en fin de formation</span>
+    </span>
 
   </div>
 </div>
 
-</section><!-- =================================================================================== -->
-<!-- SECTION : TÉMOIGNAGES CLIENTS & RÉUSSITE (PREUVE SOCIALE) -->
-<!-- =================================================================================== -->
-<!-- <section class="container my-5 py-4">
-<h2 class="text-center fw-bold mb-2">Ils ont réalisé leur rêve avec nous</h2>
-<p class="text-center text-muted mb-5">Découvrez les retours d'expérience de nos diplômés installés à leur compte.</p>
-
-<div class="row g-4 justify-content-center"> -->
-<!--   
-  Témoignage 1
-  <div class="col-12 col-md-6 col-lg-4">
-    <div class="card h-100 border-0 shadow-sm p-4 bg-white rounded-3">
-      <div class="d-flex align-items-center mb-3">
-        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center fw-bold" style="width: 50px; height: 50px; font-size: 1.2rem;">
-          FD
-        </div>
-        <div class="ms-3">
-          <h5 class="fw-bold mb-0">Fatou Diop</h5>
-          <small class="text-success fw-semibold">Savonnerie Artisanale - Dakar</small>
-        </div>
-      </div>
-      <p class="text-muted small mb-0">"Je n'avais aucune base en chimie, mais la formation de 3 jours en SAF a tout changé. Les explications sont simples et pratiques. Aujourd'hui, je vends mes propres savons surgras sur Instagram !"</p>
-      <div class="text-warning mt-3">⭐⭐⭐⭐⭐</div>
-    </div>
-  </div> -->
-
-  <!-- Témoignage 2 -->
-  <!-- <div class="col-12 col-md-6 col-lg-4">
-    <div class="card h-100 border-0 shadow-sm p-4 bg-white rounded-3">
-      <div class="d-flex align-items-center mb-3">
-        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-bold" style="width: 50px; height: 50px; font-size: 1.2rem;">
-          AM
-        </div>
-        <div class="ms-3">
-          <h5 class="fw-bold mb-0">Amadou Mané</h5>
-          <small class="text-primary fw-semibold">Porteur de Projet - Thiès</small>
-        </div>
-      </div>
-      <p class="text-muted small mb-0">"J'ai choisi le Pack Complet SAF + SAC. C'est un investissement très vite rentabilisé. La méthode à chaud me permet de produire en volume sans attendre 4 semaines de séchage. Je recommande à 100%."</p>
-      <div class="text-warning mt-3">⭐⭐⭐⭐⭐</div>
-    </div>
-  </div> -->
-
-  <!-- Témoignage 3 -->
-  <!-- <div class="col-12 col-md-6 col-lg-4">
-    <div class="card h-100 border-0 shadow-sm p-4 bg-white rounded-3">
-      <div class="d-flex align-items-center mb-3">
-        <div class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center fw-bold" style="width: 50px; height: 50px; font-size: 1.2rem;">
-          KS
-        </div>
-        <div class="ms-3">
-          <h5 class="fw-bold mb-0">Khady Sy</h5>
-          <small class="text-dark fw-semibold">Salon d'Esthétique - Mbour</small>
-        </div>
-      </div>
-      <p class="text-muted small mb-0">"Le matériel fourni et la remise du diplôme certifié m'ont donné une vraie crédibilité. J'ai intégré une gamme de savons thérapeutiques au miel dans mon salon, mes clientes adorent !"</p>
-      <div class="text-warning mt-3">⭐⭐⭐⭐⭐</div>
-    </div>
-  </div>
-
-</div>
-</section> -->
+</section>
 
 <!-- =================================================================================== -->
-<!-- BOUTON FLOTTANT WHATSAPP (À METTRE TOUT EN BAS DE VOTRE PAGE) -->
+<!-- BOUTON FLOTTANT WHATSAPP -->
 <!-- =================================================================================== -->
-<!-- Remplacez le numéro 221770000000 par votre véritable numéro de téléphone WhatsApp -->
 <a href="https://wa.me/221776223747"
 class="btn-whatsapp-flottant shadow-lg"
 target="_blank"
@@ -899,35 +833,29 @@ title="Discutez avec nous sur WhatsApp">
 </a>
 
 
-<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-                <!-- Galerie -->
-<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-
-
-
 <!-- =================================================================================== -->
-<!-- SECTION : INSCRIPTION DIRECTE VIA WHATSAPP (SANS FORMULAIRE) -->
+<!-- SECTION : INSCRIPTION DIRECTE VIA WHATSAPP -->
 <!-- =================================================================================== -->
 <section class="container my-5" id="inscription">
 <div class="row justify-content-center">
   <div class="col-12 col-md-8 col-lg-6">
 
-    <div class="card shadow border-0 rounded-3 p-4 p-sm-5 bg-white text-center">
+    <div class="card p-4 p-sm-5 bg-white text-center">
 
       <h2 class="fw-bold text-success mb-2">Rejoignez notre formation</h2>
-      <p class="text-muted mb-4">
+      <p class="mb-4">
         Contactez-nous directement sur WhatsApp : dites-nous quel module vous intéresse
         (SAF, SAC ou le Pack Complet) et on répond tout de suite à vos questions pour valider votre inscription.
       </p>
 
       <div class="d-flex flex-wrap gap-3 justify-content-center">
         <a href="tel:+221776223747"
-           class="btn btn-outline-success btn-lg fw-bold shadow-sm flex-fill">
-          <i class="bi bi-telephone-fill me-2"></i>Appeler
+           class="btn btn-outline-success btn-lg fw-bold flex-fill">
+          <i class="fa-solid fa-phone me-2"></i>Appeler
         </a>
         <a href="https://wa.me/221776223747?text=Bonjour%2C%20je%20souhaite%20m%27inscrire%20%C3%A0%20une%20formation%20en%20production%20de%20savon%20(SAF%2FSAC%2FPack).%20Pouvez-vous%20me%20donner%20plus%20d%27informations%20%3F"
            target="_blank" rel="noopener noreferrer"
-           class="btn btn-success btn-lg fw-bold shadow-sm flex-fill">
+           class="btn btn-success btn-lg fw-bold flex-fill">
           <i class="fa-brands fa-whatsapp me-2"></i>WhatsApp
         </a>
       </div>
@@ -941,31 +869,24 @@ title="Discutez avec nous sur WhatsApp">
 
 
 
-  <hr class="w-25 mx-auto">
-  <!-- =================================================================
-             realisation
-             =========== -->
-             <!-- Assurez-vous d'avoir bien inclus Bootstrap CSS et JS dans le <head> de votre site si ce n'est pas déjà fait -->
+  <hr class="w-25 mx-auto" style="border-color:#ddcfa9;">
 
 
 <!-- Témoignages -->
-<section id="temoignages" class="py-5 bg-light">
+<section id="temoignages" class="py-5">
     <div class="container py-4">
         
-        <!-- En-tête de section -->
         <div class="text-center mb-5">
-            <h2 class="fw-bold text-dark mb-3">Témoignages : Leurs Premiers Pas, Leurs Réussites</h2>
-            <p class="text-muted mx-auto" style="max-width: 600px;">
+            <h2 class="fw-bold mb-3">Témoignages : Leurs Premiers Pas, Leurs Réussites</h2>
+            <p class="mx-auto" style="max-width: 600px;">
                 Découvrez en vidéo les parcours inspirants de nos anciens apprenants devenus des entrepreneurs passionnés.
             </p>
         </div>
 
-        <!-- Grille des témoignages -->
         <div class="row g-4 mb-5">
             
-            <!-- Élément Vidéo 1 : Babacar Seck (Votre vidéo) -->
             <div class="col-12 col-md-4">
-                <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+                <div class="card h-100 overflow-hidden">
                     <div class="position-relative bg-dark" style="height: 240px;">
                         <video class="w-100 h-100 object-fit-cover" autoplay muted loop playsinline controls>
                             <source src="temoignagne/BabacarPrestige.mp4" type="video/mp4">
@@ -976,105 +897,58 @@ title="Discutez avec nous sur WhatsApp">
                         </span>
                     </div>
                     <div class="card-body p-4">
-                        <h3 class="h5 fw-bold text-dark mb-1">Savon Palmiste Pur</h3>
-                        <p class="text-warning fw-semibold small mb-3">Fondateur & Fournisseur à Dakar</p>
-                        <p class="text-secondary small mb-0">Formé en 3 jours à l'École du Savon, il produit aujourd'hui à grande échelle et fournit toute la ville de Guédiawaye.</p>
+                        <h3 class="h5 fw-bold mb-1">Savon Palmiste Pur</h3>
+                        <p class="text-primary fw-semibold small mb-3">Fondateur & Fournisseur à Dakar</p>
+                        <p class="small mb-0">Formé en 3 jours à l'École du Savon, il produit aujourd'hui à grande échelle et fournit toute la ville de Guédiawaye.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Élément Vidéo 2 (Espace réservé pour un prochain élève) -->
-            <!-- <div class="col-12 col-md-4">
-                <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
-                    <div class="position-relative bg-dark" style="height: 240px;">
-                        <video class="w-100 h-100 object-fit-cover" autoplay muted loop playsinline>
-                            <source src="URL_VIDEO_SAVON_2.mp4" type="video/mp4">
-                            Votre navigateur ne supporte pas la lecture de vidéos.
-                        </video>
-                        <span class="position-absolute bottom-0 start-0 m-3 badge bg-dark bg-opacity-75 rounded-pill px-3 py-2">
-                            Bientôt disponible
-                        </span>
-                    </div>
-                    <div class="card-body p-4">
-                        <h3 class="h5 fw-bold text-dark mb-1">Prochain Témoignage</h3>
-                        <p class="text-warning fw-semibold small mb-3"><em>Parcours Entrepreneur</em></p>
-                        <p class="text-secondary small mb-0">Découvrez bientôt le témoignage d'un autre talent issu de notre formation en savonnerie.</p>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- Élément Vidéo 3 (Espace réservé pour un prochain élève) -->
-            <!-- <div class="col-12 col-md-4">
-                <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
-                    <div class="position-relative bg-dark" style="height: 240px;">
-                        <video class="w-100 h-100 object-fit-cover" autoplay muted loop playsinline>
-                            <source src="URL_VIDEO_SAVON_3.mp4" type="video/mp4">
-                            Votre navigateur ne supporte pas la lecture de vidéos.
-                        </video>
-                        <span class="position-absolute bottom-0 start-0 m-3 badge bg-dark bg-opacity-75 rounded-pill px-3 py-2">
-                            Bientôt disponible
-                        </span>
-                    </div>
-                    <div class="card-body p-4">
-                        <h3 class="h5 fw-bold text-dark mb-1">Prochain Témoignage</h3>
-                        <p class="text-warning fw-semibold small mb-3"><em>Parcours Entrepreneur</em></p>
-                        <p class="text-secondary small mb-0">Découvrez bientôt le témoignage d'un autre talent issu de notre formation en savonnerie.</p>
-                    </div>
-                </div>
-            </div> -->
-
         </div>
 
-        <!-- Bouton d'appel à l'action -->
-        <!-- <div class="text-center">
-            <a href="#contact" class="btn btn-dark btn-lg rounded-pill px-5 py-3 shadow-sm">
-                Inscrivez-vous pour créer votre propre marque
-            </a>
-        </div>
-
-    </div> -->
+    </div>
 </section>
 <!-- =================================================================================== -->
-<!-- SECTION : FAQ (SEO — capte les variantes de recherche) -->
+<!-- SECTION : FAQ -->
 <!-- =================================================================================== -->
 <section class="container my-5 py-4" id="faq">
   <h2 class="text-center fw-bold mb-2">Questions fréquentes</h2>
-  <p class="text-center text-muted mb-5">Tout savoir sur notre formation en production de savon au Sénégal</p>
+  <p class="text-center mb-5">Tout savoir sur notre formation en production de savon au Sénégal</p>
 
   <div class="row justify-content-center">
     <div class="col-12 col-lg-8">
 
-      <details class="faq-item bg-white rounded-3 shadow-sm p-4 mb-3">
+      <details class="faq-item p-4 mb-3">
         <summary class="fw-bold">Qu'est-ce qu'une formation en saponification à froid (SAF) ?</summary>
-        <p class="text-muted mt-3 mb-0">
+        <p class="mt-3 mb-0">
           La formation en saponification à froid enseigne la fabrication de savon sans cuisson, à partir d'huiles, de beurres et de soude caustique. C'est la technique la plus utilisée en savonnerie artisanale au Sénégal, adaptée aux débutants comme aux porteurs de projet.
         </p>
       </details>
 
-      <details class="faq-item bg-white rounded-3 shadow-sm p-4 mb-3">
+      <details class="faq-item p-4 mb-3">
         <summary class="fw-bold">Qu'est-ce qu'une formation en saponification à chaud (SAC) ?</summary>
-        <p class="text-muted mt-3 mb-0">
+        <p class="mt-3 mb-0">
           La formation en saponification à chaud repose sur la cuisson du savon au chaudron. Cette méthode permet une production plus rapide, sans attendre plusieurs semaines de cure, et convient bien à une activité de savonnerie à plus grand volume.
         </p>
       </details>
 
-      <details class="faq-item bg-white rounded-3 shadow-sm p-4 mb-3">
+      <details class="faq-item p-4 mb-3">
         <summary class="fw-bold">Proposez-vous une formation en fabrication de savon complète ?</summary>
-        <p class="text-muted mt-3 mb-0">
+        <p class="mt-3 mb-0">
           Oui, notre Pack Complet combine la saponification à froid et à chaud en 3 jours intensifs. C'est la formation en fabrication de savon la plus complète que nous proposons, avec matériel fourni et diplôme certifié à la clé.
         </p>
       </details>
 
-      <details class="faq-item bg-white rounded-3 shadow-sm p-4 mb-3">
+      <details class="faq-item p-4 mb-3">
         <summary class="fw-bold">Où se déroule la formation en savonnerie ?</summary>
-        <p class="text-muted mt-3 mb-0">
+        <p class="mt-3 mb-0">
           Notre formation en savonnerie se déroule en présentiel à Dakar, au Sénégal. Le matériel, les moules et les équipements de sécurité sont intégralement fournis sur place, aucun prérequis n'est nécessaire.
         </p>
       </details>
 
-      <details class="faq-item bg-white rounded-3 shadow-sm p-4 mb-3">
+      <details class="faq-item p-4 mb-3">
         <summary class="fw-bold">Ai-je besoin de connaissances en chimie pour suivre la formation ?</summary>
-        <p class="text-muted mt-3 mb-0">
+        <p class="mt-3 mb-0">
           Non, aucun prérequis n'est demandé. La formation en production de savon est conçue pour être accessible aux grands débutants comme aux personnes en reconversion professionnelle.
         </p>
       </details>
@@ -1084,65 +958,42 @@ title="Discutez avec nous sur WhatsApp">
 </section>
                                     
 <!-- =================================================================================== -->
-<!-- SECTION : NOS PARTENAIRES (CARROUSEL AUTO) -->
+<!-- SECTION : NOS PARTENAIRES -->
 <!-- =================================================================================== -->
-<hr class="w-25 mx-auto my-5">
+<hr class="w-25 mx-auto my-5" style="border-color:#ddcfa9;">
 <h1 class="text-center mb-5 fw-bold">Nos partenaires</h1>
 
 <section class="container mb-5">
-<!-- Élément principal du carrousel Bootstrap -->
 <div id="carouselPartenaires" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
   <div class="carousel-inner">
 
-    <!-- GROUPE 1 : Les 4 premiers partenaires (Actif par défaut) -->
     <div class="carousel-item active">
       <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
         
-        <!-- Partenaire 1 : IPG / ISTI -->
-        <div class="partenaire-box shadow-sm rounded p-3 text-center">
+        <div class="partenaire-box p-3 text-center">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9UEjC9fUELi7JSkUwG8CsvwQihj9VXYMPts3oprDiXQ&s=10" class="img-fluid logo-partenaire" alt="IPG - ISTI">
         </div>
         
-        <!-- Partenaire 2 : Formule Power Clean -->
-        <div class="partenaire-box shadow-sm rounded p-3 text-center">
+        <div class="partenaire-box p-3 text-center">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyL14ddDuQSA1Sk1EES3zLROWCXMrxNJVtCvGHvVUi-A&s=10" class="img-fluid logo-partenaire" alt="Advanced Formula Power Clean">
         </div>
         
-        <!-- Partenaire 3 : Savon de Marseille -->
-        <!-- <div class="partenaire-box shadow-sm rounded p-3 text-center">
-          <img src="https://greenspandbeauty.com/image/logo.jpg" class="img-fluid logo-partenaire" alt="Savon de Marseille">
-        </div> -->
-        
-        <!-- Partenaire 4 : Madar -->
-        <div class="partenaire-box shadow-sm rounded p-3 text-center">
+        <div class="partenaire-box p-3 text-center">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ83eEtr-aUGJduFP4cqKMR6bMwhO_PMz4fZ5z4LwiwMQ&s=10" class="img-fluid logo-partenaire" alt="Madar">
         </div>
 
       </div>
     </div>
 
-    <!-- GROUPE 2 : Les 4 partenaires suivants -->
     <div class="carousel-item">
       <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
         
-        <!-- Partenaire 5 : Medimix -->
-        <div class="partenaire-box shadow-sm rounded p-3 text-center">
+        <div class="partenaire-box p-3 text-center">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVgFQA6XAs8zxAgG0j3f2nkz3mS8E4RURAPi92pyLN6g&s=10" class="img-fluid logo-partenaire" alt="Medimix Ayurvedic Soap">
         </div>
         
-        <!-- Partenaire 6 : 3FPT -->
-        <div class="partenaire-box shadow-sm rounded p-3 text-center">
+        <div class="partenaire-box p-3 text-center">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTepsIug0U1MWeeWFyGchWGuJoULNkKlsSd6u0VfPh4TA&s=10" class="img-fluid logo-partenaire" alt="3FPT">
-        </div>
-        
-        <!-- Partenaire 7 : ONFP -->
-        <div class="partenaire-box shadow-sm rounded p-3 text-center">
-          <img src="https://sakanal.sn/23549-large_default/savon-dove-pampering-shea-butter-et-vanille-4x90g.jpg" class="img-fluid logo-partenaire" alt="ONFP">
-        </div>
-        
-        <!-- Partenaire 8 : ANAQ-SUP / Autre -->
-        <div class="partenaire-box shadow-sm rounded p-3 text-center">
-          <img src="https://greenspandbeauty.com/image/logo.jpg" class="img-fluid logo-partenaire" alt="Partenaire institutionnel">
         </div>
 
       </div>
@@ -1150,30 +1001,24 @@ title="Discutez avec nous sur WhatsApp">
 
   </div>
 
-  <!-- Boutons d'action Précédent / Suivant (Discrets) -->
   <button class="carousel-control-prev custom-control" type="button" data-bs-target="#carouselPartenaires" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Précédent</span>
   </button>
   <button class="carousel-control-next custom-control" type="button" data-bs-target="#carouselPartenaires" data-bs-slide="next">
-    <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Suivant</span>
   </button>
 </div>
 </section>
 <!-- =================================================================================== -->
-<!-- SECTION : PRÉSENTATION DU GROUPE ESN (CACHÉE PAR DÉFAUT)                            -->
+<!-- SECTION : PRÉSENTATION DU GROUPE ESN -->
 <!-- =================================================================================== -->
-<!-- ========================================================= -->
-<!-- GROUPE ESN -->
-<!-- ========================================================= -->
-
-
 
 <section id="section-esn"
       class="container my-5 d-none">
 
-  <div class="card shadow border-0">
+  <div class="card formation-card">
 
       <div class="row g-0">
 
@@ -1199,7 +1044,7 @@ title="Discutez avec nous sur WhatsApp">
                       Présentation du Groupe ESN
                   </h2>
 
-                  <p class="text-muted">
+                  <p>
                       Le Groupe ESN est un pôle d'innovation
                       et de formation professionnelle dédié
                       au développement des compétences dans
@@ -1212,7 +1057,7 @@ title="Discutez avec nous sur WhatsApp">
                       Notre vision
                   </h5>
 
-                  <p class="text-muted">
+                  <p>
                       Notre objectif est de transmettre un
                       savoir-faire pratique permettant aux
                       apprenants de développer leurs compétences
@@ -1224,7 +1069,7 @@ title="Discutez avec nous sur WhatsApp">
                       Notre mission
                   </h5>
 
-                  <p class="text-muted">
+                  <p>
                       Nous accompagnons les particuliers,
                       entrepreneurs et professionnels à travers
                       des formations pratiques en saponification
@@ -1235,7 +1080,7 @@ title="Discutez avec nous sur WhatsApp">
                   <button onclick="retourAccueil()"
                           class="btn btn-outline-primary mt-3">
 
-                      <i class="bi bi-arrow-left"></i>
+                      <i class="fa-solid fa-arrow-left"></i>
                       Retour aux formations
 
                   </button>
@@ -1254,60 +1099,55 @@ title="Discutez avec nous sur WhatsApp">
 
 </main>
 <!-- =================================================================================== -->
-<!-- FOOTER PROFESSIONNEL (STYLE INSTITUTIONNEL ECOLE DU SAVON DU SÉNÉGAL) -->
+<!-- FOOTER -->
 <!-- =================================================================================== -->
 <footer class="bg-dark text-white pt-5 pb-3 mt-5 border-top border-4 border-primary">
 <div class="container">
   <div class="row g-4 text-center text-md-start">
 
-    <!-- Colonne 1 : À propos / Identité -->
     <div class="col-12 col-md-4">
       <h5 class="fw-bold text-uppercase text-primary mb-3">École du Savon</h5>
-      <p class="text-secondary small mb-3">
+      <p class="small mb-3">
         Le premier institut de référence au Sénégal dédié à l'apprentissage des métiers de la savonnerie artisanale et industrielle (SAF et SAC). Formations certifiantes en 3 jours.
       </p>
-      <!-- Réseaux Sociaux -->
       <div class="d-flex justify-content-center justify-content-md-start gap-3 fs-5">
         <a href="#" class="text-secondary text-primary-hover"><i class="fa-brands fa-facebook"></i></a>
         <a href="#" class="text-secondary text-primary-hover"><i class="fa-brands fa-instagram"></i></a>
         <a href="#" class="text-secondary text-primary-hover"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://wa.me" target="_blank" class="text-secondary text-success-hover"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://wa.me/221776223747" target="_blank" class="text-secondary text-success-hover"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
     </div>
 
-    <!-- Colonne 2 : Liens Rapides (Formations) -->
     <div class="col-12 col-sm-6 col-md-4 px-md-5">
       <h5 class="fw-bold text-uppercase text-white mb-3">Nos Formations</h5>
       <ul class="list-unstyled small d-flex flex-column gap-2">
-        <li><a href="#saf-card" class="text-secondary text-decoration-none text-white-hover">🌿 Saponification à Froid (SAF)</a></li>
-        <li><a href="#sac-card" class="text-secondary text-decoration-none text-white-hover">⚡ Saponification à Chaud (SAC)</a></li>
-        <li><a href="#pack-card" class="text-secondary text-decoration-none text-white-hover">🔥 Pack Complet (SAF + SAC)</a></li>
-        <li><a href="boutique.html" class="text-secondary text-decoration-none text-white-hover">🛍️ Notre Boutique en ligne</a></li>
+        <li><a href="#saf-card" class="text-decoration-none text-white-hover" style="color:#C9C2B4;"><i class="fa-solid fa-leaf me-2"></i>Saponification à Froid (SAF)</a></li>
+        <li><a href="#sac-card" class="text-decoration-none text-white-hover" style="color:#C9C2B4;"><i class="fa-solid fa-fire me-2"></i>Saponification à Chaud (SAC)</a></li>
+        <li><a href="#pack-card" class="text-decoration-none text-white-hover" style="color:#C9C2B4;"><i class="fa-solid fa-star me-2"></i>Pack Complet (SAF + SAC)</a></li>
+        <li><a href="boutique.html" class="text-decoration-none text-white-hover" style="color:#C9C2B4;"><i class="fa-solid fa-bag-shopping me-2"></i>Notre Boutique en ligne</a></li>
       </ul>
     </div>
 
-    <!-- Colonne 3 : Contacts au Sénégal -->
     <div class="col-12 col-sm-6 col-md-4">
       <h5 class="fw-bold text-uppercase text-white mb-3">Contactez-nous</h5>
-      <ul class="list-unstyled small d-flex flex-column gap-2 text-secondary">
+      <ul class="list-unstyled small d-flex flex-column gap-2">
         <li><i class="bi bi-geo-alt-fill text-primary me-2"></i> Dakar, Sénégal (Keur Massar/Guediawaye / Sacré-Cœur)</li>
         <li><i class="bi bi-telephone-fill text-primary me-2"></i> +221 77 622 37 47 </li>
-        <li><i class="bi bi-envelope-fill text-primary me-2"></i> contact@ecoledusavon.sn</li>
+        <li><i class="bi bi-envelope-fill text-primary me-2"></i> contact@ecoledusavon.com</li>
         <li><i class="bi bi-clock-fill text-primary me-2"></i> Lun - Sam : 08h00 - 18h00</li>
       </ul>
     </div>
 
   </div>
 
-  <!-- Ligne de Copyright de fin de page -->
   <hr class="border-secondary mt-5 mb-3">
-  <div class="row align-items-center small text-secondary text-center">
-    <div class="col-12 col-md-6 mb-2 mb-md-0">
+  <div class="row align-items-center small text-center">
+    <div class="col-12 col-md-6 mb-2 mb-md-0" style="color:#C9C2B4;">
       &copy; 2026 Ecole du Savon du Sénégal. Tous droits réservés.
     </div>
     <div class="col-12 col-md-6 text-md-end">
-      <a href="#" class="text-secondary text-decoration-none text-white-hover me-3">Mentions légales</a>
-      <a href="#" class="text-secondary text-decoration-none text-white-hover">Politique de confidentialité</a>
+      <a href="#" class="text-decoration-none text-white-hover me-3" style="color:#C9C2B4;">Mentions légales</a>
+      <a href="#" class="text-decoration-none text-white-hover" style="color:#C9C2B4;">Politique de confidentialité</a>
     </div>
   </div>
 </div>
@@ -1333,7 +1173,7 @@ const formations = {
 
         image: "carousel/image1.png",
 
-        badge: "🌿 Saponification à froid",
+        badge: "Saponification à froid",
 
         description:
             "L'artisan savonnier en SAF conçoit et fabrique des savons sans cuisson. Cette technique permet de travailler avec différentes huiles, beurres et actifs afin de créer des savons artisanaux de qualité.",
@@ -1358,7 +1198,7 @@ const formations = {
 
         image: "carousel/image1.png",
 
-        badge: "⚡ Saponification à chaud",
+        badge: "Saponification à chaud",
 
         description:
             "La saponification à chaud permet de fabriquer du savon par cuisson. Cette méthode traditionnelle permet notamment de réduire le temps nécessaire avant utilisation du savon.",
@@ -1383,7 +1223,7 @@ const formations = {
 
         image: "carousel/image1.png",
 
-        badge: "🔥 Pack Complet",
+        badge: "Pack Complet",
 
         description:
             "Cette formation permet de maîtriser les deux grandes techniques de fabrication du savon : la saponification à froid et la saponification à chaud.",
@@ -1418,8 +1258,6 @@ window.afficherFormation = function (type) {
     }
 
 
-    /* Cacher toutes les cartes */
-
     document
         .querySelectorAll(".formation-card")
         .forEach(function (card) {
@@ -1429,8 +1267,6 @@ window.afficherFormation = function (type) {
         });
 
 
-    /* Cacher le titre */
-
     const titre =
         document.querySelector("#formations-section h1");
 
@@ -1439,22 +1275,16 @@ window.afficherFormation = function (type) {
     }
 
 
-    /* Cacher la présentation ESN */
-
     document
         .getElementById("section-esn")
         .classList.add("d-none");
 
-
-    /* Afficher le détail */
 
     const detail =
         document.getElementById("formation-detail");
 
     detail.classList.remove("d-none");
 
-
-    /* Image */
 
     document
         .getElementById("detail-image")
@@ -1465,14 +1295,10 @@ window.afficherFormation = function (type) {
         .alt = formation.titre;
 
 
-    /* Titre */
-
     document
         .getElementById("detail-title")
         .textContent = formation.titre;
 
-
-    /* Badge */
 
     const badge =
         document.getElementById("detail-badge");
@@ -1485,15 +1311,11 @@ window.afficherFormation = function (type) {
         formation.couleur;
 
 
-    /* Description */
-
     document
         .getElementById("detail-description")
         .textContent =
         formation.description;
 
-
-    /* Prix */
 
     const prix =
         document.getElementById("detail-price");
@@ -1505,8 +1327,6 @@ window.afficherFormation = function (type) {
         "fs-4 ms-2 fw-bold " +
         formation.couleur;
 
-
-    /* Liste */
 
     const liste =
         document.getElementById("detail-list");
@@ -1528,8 +1348,6 @@ window.afficherFormation = function (type) {
     });
 
 
-    /* Faire défiler vers le détail */
-
     detail.scrollIntoView({
         behavior: "smooth",
         block: "start"
@@ -1544,8 +1362,6 @@ window.afficherFormation = function (type) {
 
 window.afficherPresentation = function () {
 
-    /* Cacher les cartes */
-
     document
         .querySelectorAll(".formation-card")
         .forEach(function (card) {
@@ -1555,8 +1371,6 @@ window.afficherPresentation = function () {
         });
 
 
-    /* Cacher le titre */
-
     const titre =
         document.querySelector("#formations-section h1");
 
@@ -1565,22 +1379,16 @@ window.afficherPresentation = function () {
     }
 
 
-    /* Cacher le détail d'une formation */
-
     document
         .getElementById("formation-detail")
         .classList.add("d-none");
 
-
-    /* Afficher ESN */
 
     const esn =
         document.getElementById("section-esn");
 
     esn.classList.remove("d-none");
 
-
-    /* Aller vers ESN */
 
     esn.scrollIntoView({
         behavior: "smooth",
@@ -1596,8 +1404,6 @@ window.afficherPresentation = function () {
 
 window.retourAccueil = function () {
 
-    /* Afficher les cartes */
-
     document
         .querySelectorAll(".formation-card")
         .forEach(function (card) {
@@ -1607,8 +1413,6 @@ window.retourAccueil = function () {
         });
 
 
-    /* Afficher le titre */
-
     const titre =
         document.querySelector("#formations-section h1");
 
@@ -1617,21 +1421,15 @@ window.retourAccueil = function () {
     }
 
 
-    /* Cacher le détail */
-
     document
         .getElementById("formation-detail")
         .classList.add("d-none");
 
 
-    /* Cacher ESN */
-
     document
         .getElementById("section-esn")
         .classList.add("d-none");
 
-
-    /* Retour aux formations */
 
     document
         .getElementById("formations-section")
@@ -1641,15 +1439,6 @@ window.retourAccueil = function () {
         });
 
 };
-
-
-/* =========================================================
-   INSCRIPTION VIA WHATSAPP
-   (les boutons "Appeler" et "WhatsApp" sont de simples liens
-   <a href="tel:..."> et <a href="https://wa.me/...">, donc
-   aucun JavaScript n'est nécessaire ici — le navigateur gère
-   l'ouverture nativement)
-========================================================= */
 
 });
 
