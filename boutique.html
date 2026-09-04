@@ -19,24 +19,24 @@ if (window.location.hostname === "babacar053.github.io") {
     <meta name="keywords" content="moule savon Dakar, thermomètre savonnerie, matériel savonnerie Sénégal, accessoires fabrication savon, balance précision savon, boutique savonnerie Dakar">
     <meta name="author" content="École du Savon du Sénégal">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.ecoledusavon.com/boutique.html">
+    <link rel="canonical" href="https://ecoledusavon.com/boutique.html">
 
     <!-- ═══════════════════ SEO — OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ═══════════════════ -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="École du Savon du Sénégal">
     <meta property="og:title" content="Boutique Savonnerie — Moules, Thermomètres & Accessoires">
     <meta property="og:description" content="Tout le matériel pour fabriquer votre savon à Dakar : moules, thermomètres, accessoires. Livraison disponible.">
-    <meta property="og:image" content="https://www.ecoledusavon.com/images/og-boutique.jpg">
+    <meta property="og:image" content="https://ecoledusavon.com/images/og-boutique.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://www.ecoledusavon.com/boutique.html">
+    <meta property="og:url" content="https://ecoledusavon.com/boutique.html">
     <meta property="og:locale" content="fr_SN">
 
     <!-- ═══════════════════ SEO — TWITTER / X CARD ═══════════════════ -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Boutique Savonnerie — École du Savon du Sénégal">
     <meta name="twitter:description" content="Moules, thermomètres et accessoires de savonnerie, livrés à Dakar.">
-    <meta name="twitter:image" content="https://www.ecoledusavon.com/images/og-boutique.jpg">
+    <meta name="twitter:image" content="https://ecoledusavon.com/images/og-boutique.jpg">
 
     <!-- ═══════════════════ SEO — GÉOLOCALISATION (référencement local) ═══════════════════ -->
     <meta name="geo.region" content="SN-DK">
@@ -44,6 +44,9 @@ if (window.location.hostname === "babacar053.github.io") {
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- ═══════════════════ SEO — DONNÉES STRUCTURÉES (Google) ═══════════════════ -->
     <script type="application/ld+json">
@@ -51,7 +54,7 @@ if (window.location.hostname === "babacar053.github.io") {
       "@context": "https://schema.org",
       "@type": "Store",
       "name": "Boutique École du Savon du Sénégal",
-      "url": "https://www.ecoledusavon.com/boutique.html",
+      "url": "https://ecoledusavon.com/boutique.html",
       "description": "Vente de moules, thermomètres et accessoires pour la fabrication artisanale de savon.",
       "address": {
         "@type": "PostalAddress",
@@ -59,110 +62,228 @@ if (window.location.hostname === "babacar053.github.io") {
         "addressCountry": "SN"
       },
       "telephone": "+221776223747",
-      "priceRange": "5000-25000 XOF"
+      "priceRange": "5000-40000 XOF"
     }
     </script>
 
     <style>
-      /* ─── BANDEAU + NAVBAR (identiques à accueil.html) ─── */
-      .isi-top-bar { background-color:#0d6efd; font-size:13px; padding:8px 0; box-shadow: inset 0 -2px 5px rgba(0,0,0,0.05); }
-      .isi-ticker-wrapper { white-space:nowrap; }
-      .isi-ticker-text { display:inline-block; padding-left:50px; animation: isi-marquee 25s linear infinite; }
-      .isi-top-bar:hover .isi-ticker-text { animation-play-state:paused; cursor:pointer; }
-      @keyframes isi-marquee { 0% { transform:translate3d(0,0,0);} 100% { transform:translate3d(-100%,0,0);} }
-      .navbar-nav .nav-link { font-size:15px; transition:color .2s ease; }
-      .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color:#0d6efd !important; }
 
-      /* ─── BOUTIQUE ─── */
+      /* ═══════════════════════════════════════════════════════════
+         TOKENS — identiques à index.html (palette karité, olive,
+         argile, miel) pour une cohérence visuelle totale.
+      ═══════════════════════════════════════════════════════════ */
+      :root {
+        --savon-cream:      #F6EFDE;
+        --savon-cream-deep: #ECE0C4;
+        --savon-ink:        #2E2A24;
+        --savon-ink-soft:    #5B5448;
+        --savon-olive:       #55613B;
+        --savon-olive-dark:  #414A2E;
+        --savon-olive-tint:  #E3E7D6;
+        --savon-clay:        #B5581F;
+        --savon-clay-dark:   #8F4517;
+        --savon-clay-tint:   #F3DFC9;
+        --savon-gold:        #C08A2A;
+        --savon-gold-dark:   #96691E;
+        --savon-gold-tint:   #F1E3C0;
+        --savon-radius:      1.1rem;
+        --savon-radius-lg:   1.6rem;
+      }
+
+      * { scroll-behavior: smooth; }
+
+      body {
+        background-color: var(--savon-cream);
+        color: var(--savon-ink);
+        font-family: 'Work Sans', -apple-system, sans-serif;
+      }
+
+      h1, h2, h3, h4, h5, h6, .navbar-brand {
+        font-family: 'Fraunces', Georgia, serif;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        color: var(--savon-ink);
+      }
+
+      p, li { color: var(--savon-ink-soft); }
+      a { color: var(--savon-olive); }
+      a:hover { color: var(--savon-olive-dark); }
+
+      /* ─── BANDEAU DÉFILANT ─── */
+      .isi-top-bar {
+        background: linear-gradient(90deg, var(--savon-ink) 0%, var(--savon-olive-dark) 100%);
+        font-size: 13px;
+        padding: 9px 0;
+        letter-spacing: .01em;
+      }
+      .isi-ticker-wrapper { white-space: nowrap; }
+      .isi-ticker-text { display: inline-block; padding-left: 50px; animation: isi-marquee 28s linear infinite; color: var(--savon-cream); }
+      .isi-top-bar:hover .isi-ticker-text { animation-play-state: paused; cursor: pointer; }
+      @keyframes isi-marquee { 0% { transform: translate3d(0,0,0);} 100% { transform: translate3d(-100%,0,0);} }
+
+      /* ─── NAVBAR ─── */
+      .navbar { background-color: var(--savon-cream) !important; border-bottom: 1px solid var(--savon-cream-deep); }
+      .navbar-brand { font-size: 1.3rem; display: flex; align-items: center; gap: .5rem; }
+      .brand-mark {
+        width: 40px; height: 40px; border-radius: 50%;
+        background: var(--savon-olive); color: var(--savon-cream);
+        display: inline-flex; align-items: center; justify-content: center;
+        font-size: 1.1rem; flex-shrink: 0;
+      }
+      .navbar-nav .nav-link { font-size: 15px; font-weight: 600; color: var(--savon-ink) !important; transition: color .2s ease; }
+      .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: var(--savon-clay) !important; }
+
+      /* ─── BOUTONS (mêmes styles que l'accueil) ─── */
+      .btn { border-radius: 50px; font-weight: 600; }
+      .btn-success { background-color: var(--savon-olive); border-color: var(--savon-olive); color: #fff; }
+      .btn-success:hover, .btn-success:focus { background-color: var(--savon-olive-dark); border-color: var(--savon-olive-dark); color: #fff; }
+      .btn-outline-success { color: var(--savon-olive); border-color: var(--savon-olive); }
+      .btn-outline-success:hover { background-color: var(--savon-olive); border-color: var(--savon-olive); color: #fff; }
+      .btn-outline-secondary { color: var(--savon-ink-soft); border-color: var(--savon-ink-soft); }
+      .btn-link.text-danger { color: var(--savon-clay-dark) !important; }
+
+      /* ─── EN-TÊTE BOUTIQUE ─── */
+      header.boutique-hero h1 { font-size: 2.2rem; }
+      header.boutique-hero p { color: var(--savon-ink-soft); }
+
+      /* ─── FILTRES CATÉGORIES ─── */
       .cat-tabs { display:flex; gap:.6rem; flex-wrap:wrap; }
       .cat-tabs .btn { border-radius:50px; font-weight:600; font-size:.9rem; }
 
-      .produit-card { border:0; border-radius:1rem; overflow:hidden; transition: transform .2s ease, box-shadow .2s ease; height:100%; }
-      .produit-card:hover { transform:translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,.1); }
-      .produit-card .img-wrap { aspect-ratio:1/1; background:#f8f9fa; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+      /* ─── CARTES PRODUITS ─── */
+      .produit-card {
+        border: 1px solid var(--savon-cream-deep) !important;
+        border-radius: var(--savon-radius-lg) !important;
+        overflow:hidden; height:100%; background:#fff;
+        box-shadow: 0 10px 30px -18px rgba(46,42,36,.35);
+        transition: transform .25s ease, box-shadow .25s ease;
+      }
+      .produit-card:hover { transform:translateY(-6px); box-shadow: 0 18px 36px -16px rgba(46,42,36,.4); }
+      .produit-card .img-wrap { aspect-ratio:1/1; background: var(--savon-cream-deep); display:flex; align-items:center; justify-content:center; overflow:hidden; }
       .produit-card .img-wrap img { width:100%; height:100%; object-fit:cover; }
       .produit-card .badge-stock { position:absolute; top:10px; left:10px; }
+      .produit-card .text-success { color: var(--savon-olive) !important; }
 
+      /* ─── PANIER FLOTTANT ─── */
       .cart-fab {
         position:fixed; bottom:30px; left:30px; z-index:1050;
-        width:60px; height:60px; border-radius:50px; background:#0d6efd; color:#fff;
+        width:60px; height:60px; border-radius:50px; background: var(--savon-olive); color:#fff;
         display:flex; align-items:center; justify-content:center; font-size:1.5rem;
-        box-shadow:0 4px 16px rgba(13,110,253,.4); border:none; transition:.25s ease;
+        box-shadow: 0 10px 24px -8px rgba(65,74,46,.55); border:none; transition:.25s ease;
       }
-      .cart-fab:hover { transform:scale(1.08); background:#0b5ed7; }
+      .cart-fab:hover { transform:scale(1.08); background: var(--savon-olive-dark); }
       .cart-fab .cart-count {
-        position:absolute; top:-4px; right:-4px; background:#dc3545; color:#fff;
+        position:absolute; top:-4px; right:-4px; background: var(--savon-clay); color:#fff;
         font-size:.7rem; font-weight:700; min-width:22px; height:22px; border-radius:50px;
         display:flex; align-items:center; justify-content:center; padding:0 4px;
       }
 
-      .cart-item-row { display:flex; gap:.8rem; align-items:center; padding:.75rem 0; border-bottom:1px solid #eee; }
+      .cart-item-row { display:flex; gap:.8rem; align-items:center; padding:.75rem 0; border-bottom:1px solid var(--savon-cream-deep); }
       .cart-item-row img { width:56px; height:56px; object-fit:cover; border-radius:.5rem; flex-shrink:0; }
-      .qty-btn { width:28px; height:28px; border-radius:50%; border:1px solid #dee2e6; background:#fff; }
+      .qty-btn { width:28px; height:28px; border-radius:50%; border:1px solid var(--savon-cream-deep); background:#fff; }
 
+      /* ─── OFFCANVAS / MODAL ─── */
+      .offcanvas, .modal-content { background-color: var(--savon-cream); }
+      .offcanvas-header, .modal-header, .modal-footer { border-color: var(--savon-cream-deep) !important; }
+      .form-control, .form-check-input { border-color: var(--savon-cream-deep); }
+      .form-control:focus { border-color: var(--savon-olive); box-shadow: 0 0 0 .2rem var(--savon-olive-tint); }
+
+      /* ─── WHATSAPP FLOTTANT ─── */
       .btn-whatsapp-flottant {
         position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color:#fff !important;
         width:60px; height:60px; border-radius:50px; display:flex; align-items:center; justify-content:center;
-        font-size:32px; z-index:9999; text-decoration:none; transition:all .3s ease;
+        font-size:30px; z-index:9999; text-decoration:none; box-shadow: 0 10px 24px -8px rgba(37,211,102,.6);
+        transition:all .3s ease;
       }
-      .btn-whatsapp-flottant:hover { background-color:#20ba5a; transform:scale(1.1) translateY(-3px); }
+      .btn-whatsapp-flottant:hover { background-color: #20ba5a; transform:scale(1.08) translateY(-3px); }
+
+      /* ─── FOOTER ─── */
+      footer.bg-dark { background-color: var(--savon-ink) !important; }
+      footer .text-primary { color: var(--savon-gold) !important; }
+      footer p, footer li, footer span { color: #C9C2B4; }
+      footer a.text-secondary { color: #C9C2B4 !important; transition: color .2s ease; }
+      footer a.text-secondary:hover { color: var(--savon-gold) !important; }
+      .border-primary { border-color: var(--savon-clay) !important; }
+
     </style>
   </head>
-  <body class="bg-light">
+  <body>
 
-    <!-- BANDEAU -->
-    <div class="isi-top-bar w-100 overflow-hidden text-white fw-semibold">
+    <!-- =================================================================================== -->
+    <!-- BANDEAU INFO DÉFILANT -->
+    <!-- =================================================================================== -->
+    <div class="isi-top-bar w-100 overflow-hidden fw-semibold">
       <div class="isi-ticker-wrapper d-flex align-items-center">
         <div class="isi-ticker-text">🛍️ Bienvenue dans notre boutique ! • 🧴 Moules, thermomètres et accessoires pour savonniers • 🚚 Livraison disponible à Dakar et environs • 💳 Paiement Wave ou à la livraison •&nbsp;</div>
         <div class="isi-ticker-text" aria-hidden="true">🛍️ Bienvenue dans notre boutique ! • 🧴 Moules, thermomètres et accessoires pour savonniers • 🚚 Livraison disponible à Dakar et environs • 💳 Paiement Wave ou à la livraison •&nbsp;</div>
       </div>
     </div>
 
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white p-0 shadow-sm">
+    <!-- =================================================================================== -->
+    <!-- BARRE DE NAVIGATION -->
+    <!-- =================================================================================== -->
+    <nav class="navbar navbar-expand-lg navbar-light p-0">
       <div class="container-fluid p-0">
-        <a class="navbar-brand fw-bold px-3 py-2 text-success" href="index.html">🧼 École du Savon</a>
-        <button class="navbar-toggler ms-auto border-0 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navBoutique">
+
+        <a class="navbar-brand fw-bold px-3 py-2" href="index.html">
+          <span class="brand-mark"><i class="fa-solid fa-mortar-pestle"></i></span>
+          École du Savon
+        </a>
+
+        <button class="navbar-toggler ms-auto border-0 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navBoutique" aria-controls="navBoutique" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navBoutique">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1 px-3">
-            <li class="nav-item"><a class="nav-link fw-bold text-dark px-3" href="index.html"><i class="bi bi-house-fill me-1"></i>Accueil</a></li>
-            <li class="nav-item"><a class="nav-link active fw-bold text-dark px-3" href="boutique.html">Boutique</a></li>
-            <li class="nav-item"><a class="nav-link fw-bold text-dark px-3" href="index.html#inscription">Inscription</a></li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold px-3" href="index.html">
+                <i class="fa-solid fa-house me-1"></i> Accueil
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active fw-bold px-3" href="boutique.html">Boutique</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold px-3" href="index.html#inscription">Inscription</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <!-- EN-TÊTE BOUTIQUE -->
-    <header class="container text-center my-5">
-      <h1 class="fw-bold">🛍️ Notre Boutique</h1>
-      <p class="text-muted">Moules, thermomètres et accessoires pour vos fabrications de savon</p>
-    </header>
+    <main>
 
-    <!-- FILTRES CATÉGORIES -->
-    <div class="container mb-4">
-      <div class="cat-tabs justify-content-center" id="catTabs">
-        <button class="btn btn-success" data-cat="tous">Tous les produits</button>
-        <button class="btn btn-outline-success" data-cat="moules">🧊 Moules</button>
-        <button class="btn btn-outline-success" data-cat="thermometres">🌡️ Thermomètres</button>
-        <button class="btn btn-outline-success" data-cat="accessoires">🧰 Accessoires</button>
-      </div>
-    </div>
+      <!-- EN-TÊTE BOUTIQUE -->
+      <header class="container text-center boutique-hero my-5">
+        <h1 class="fw-bold">Notre Boutique</h1>
+        <p class="mx-auto" style="max-width:600px;">Moules, thermomètres et accessoires pour vos fabrications de savon, livrés à Dakar.</p>
+      </header>
 
-    <!-- GRILLE PRODUITS -->
-    <main class="container mb-5">
-      <div class="row g-4" id="produitsGrid"></div>
-      <div id="noResults" class="text-center text-muted py-5 d-none">
-        <i class="bi bi-search fs-1"></i>
-        <p class="mt-2">Aucun produit dans cette catégorie pour le moment.</p>
+      <!-- FILTRES CATÉGORIES -->
+      <div class="container mb-4">
+        <div class="cat-tabs justify-content-center" id="catTabs">
+          <button class="btn btn-success" data-cat="tous">Tous les produits</button>
+          <button class="btn btn-outline-success" data-cat="moules"><i class="fa-solid fa-cube me-1"></i>Moules</button>
+          <button class="btn btn-outline-success" data-cat="thermometres"><i class="fa-solid fa-temperature-half me-1"></i>Thermomètres</button>
+          <button class="btn btn-outline-success" data-cat="accessoires"><i class="fa-solid fa-toolbox me-1"></i>Accessoires</button>
+        </div>
       </div>
+
+      <!-- GRILLE PRODUITS -->
+      <section class="container mb-5">
+        <div class="row g-4" id="produitsGrid"></div>
+        <div id="noResults" class="text-center py-5 d-none">
+          <i class="fa-solid fa-magnifying-glass fs-1" style="color:var(--savon-ink-soft);"></i>
+          <p class="mt-2">Aucun produit dans cette catégorie pour le moment.</p>
+        </div>
+      </section>
+
     </main>
 
     <!-- BOUTON PANIER FLOTTANT -->
     <button class="cart-fab" id="openCartBtn" title="Voir mon panier">
-      <i class="bi bi-cart3"></i>
+      <i class="fa-solid fa-cart-shopping"></i>
       <span class="cart-count d-none" id="cartCount">0</span>
     </button>
 
@@ -174,17 +295,17 @@ if (window.location.hostname === "babacar053.github.io") {
     <!-- OFFCANVAS PANIER -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
       <div class="offcanvas-header border-bottom">
-        <h5 class="offcanvas-title fw-bold">🛒 Mon panier</h5>
+        <h5 class="offcanvas-title fw-bold">Mon panier</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
       </div>
       <div class="offcanvas-body d-flex flex-column">
         <div id="cartItemsList" class="flex-grow-1 overflow-auto"></div>
         <div class="border-top pt-3 mt-3">
-          <div class="d-flex justify-content-between small text-muted mb-1">
+          <div class="d-flex justify-content-between small mb-1">
             <span>Sous-total</span>
             <span id="cartSubtotal">0 FCFA</span>
           </div>
-          <div class="d-flex justify-content-between small text-muted mb-2">
+          <div class="d-flex justify-content-between small mb-2">
             <span>Livraison (Dakar)</span>
             <span id="cartLivraison">2 000 FCFA</span>
           </div>
@@ -209,19 +330,19 @@ if (window.location.hostname === "babacar053.github.io") {
           <form id="commandeForm">
             <div class="modal-body">
               <div class="mb-3">
-                <label class="form-label fw-semibold">Nom et prénom <span class="text-danger">*</span></label>
+                <label class="form-label fw-semibold">Nom et prénom <span style="color:var(--savon-clay);">*</span></label>
                 <input type="text" class="form-control" id="cmdNom" required placeholder="Ex: Aminata Diop">
               </div>
               <div class="mb-3">
-                <label class="form-label fw-semibold">Téléphone <span class="text-danger">*</span></label>
+                <label class="form-label fw-semibold">Téléphone <span style="color:var(--savon-clay);">*</span></label>
                 <input type="tel" class="form-control" id="cmdTelephone" required placeholder="Ex: 77 622 37 47">
               </div>
               <div class="mb-3">
-                <label class="form-label fw-semibold">Adresse de livraison <span class="text-danger">*</span></label>
+                <label class="form-label fw-semibold">Adresse de livraison <span style="color:var(--savon-clay);">*</span></label>
                 <input type="text" class="form-control" id="cmdAdresse" required placeholder="Quartier, ville">
               </div>
               <div class="mb-3">
-                <label class="form-label fw-semibold">Mode de paiement <span class="text-danger">*</span></label>
+                <label class="form-label fw-semibold">Mode de paiement <span style="color:var(--savon-clay);">*</span></label>
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="paiement" id="payLivraison" value="livraison" checked>
                   <label class="form-check-label" for="payLivraison">Payer à la livraison</label>
@@ -237,8 +358,8 @@ if (window.location.hostname === "babacar053.github.io") {
                 <label class="form-label fw-semibold">Message (optionnel)</label>
                 <textarea class="form-control" id="cmdMessage" rows="2" placeholder="Précisions sur votre commande..."></textarea>
               </div>
-              <p class="small text-muted mb-0">
-                <i class="bi bi-info-circle"></i>
+              <p class="small mb-0">
+                <i class="fa-solid fa-circle-info"></i>
                 Livraison à 2 000 FCFA partout à Dakar. Votre commande sera envoyée sur WhatsApp pour confirmation. Si vous choisissez Wave, le lien de paiement s'ouvrira automatiquement.
               </p>
             </div>
@@ -252,32 +373,57 @@ if (window.location.hostname === "babacar053.github.io") {
       </div>
     </div>
 
+    <!-- =================================================================================== -->
     <!-- FOOTER -->
+    <!-- =================================================================================== -->
     <footer class="bg-dark text-white pt-5 pb-3 mt-5 border-top border-4 border-primary">
       <div class="container">
         <div class="row g-4 text-center text-md-start">
+
           <div class="col-12 col-md-4">
             <h5 class="fw-bold text-uppercase text-primary mb-3">École du Savon</h5>
-            <p class="text-secondary small mb-0">Institut de référence au Sénégal pour l'apprentissage des métiers de la savonnerie (SAF et SAC).</p>
+            <p class="small mb-3">
+              Le premier institut de référence au Sénégal dédié à l'apprentissage des métiers de la savonnerie artisanale et industrielle (SAF et SAC). Formations certifiantes en 3 jours.
+            </p>
+            <div class="d-flex justify-content-center justify-content-md-start gap-3 fs-5">
+              <a href="#" class="text-secondary text-primary-hover"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#" class="text-secondary text-primary-hover"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="text-secondary text-primary-hover"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="https://wa.me/221776223747" target="_blank" class="text-secondary text-success-hover"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
           </div>
-          <div class="col-12 col-md-4">
+
+          <div class="col-12 col-sm-6 col-md-4 px-md-5">
             <h5 class="fw-bold text-uppercase text-white mb-3">Liens</h5>
             <ul class="list-unstyled small d-flex flex-column gap-2">
-              <li><a href="index.html" class="text-secondary text-decoration-none">Accueil</a></li>
-              <li><a href="boutique.html" class="text-secondary text-decoration-none">Boutique</a></li>
-              <li><a href="index.html#inscription" class="text-secondary text-decoration-none">Inscription</a></li>
+              <li><a href="index.html" class="text-decoration-none text-secondary"><i class="fa-solid fa-house me-2"></i>Accueil</a></li>
+              <li><a href="boutique.html" class="text-decoration-none text-secondary"><i class="fa-solid fa-bag-shopping me-2"></i>Boutique</a></li>
+              <li><a href="index.html#inscription" class="text-decoration-none text-secondary"><i class="fa-solid fa-graduation-cap me-2"></i>Inscription</a></li>
             </ul>
           </div>
-          <div class="col-12 col-md-4">
-            <h5 class="fw-bold text-uppercase text-white mb-3">Contact</h5>
-            <ul class="list-unstyled small d-flex flex-column gap-2 text-secondary">
-              <li><i class="bi bi-telephone-fill text-primary me-2"></i>+221 77 622 37 47</li>
-              <li><i class="bi bi-envelope-fill text-primary me-2"></i>contact@ecoledusavon.com</li>
+
+          <div class="col-12 col-sm-6 col-md-4">
+            <h5 class="fw-bold text-uppercase text-white mb-3">Contactez-nous</h5>
+            <ul class="list-unstyled small d-flex flex-column gap-2">
+              <li><i class="fa-solid fa-location-dot text-primary me-2"></i> Dakar, Sénégal (Keur Massar/Guediawaye / Sacré-Cœur)</li>
+              <li><i class="fa-solid fa-phone text-primary me-2"></i> +221 77 622 37 47</li>
+              <li><i class="fa-solid fa-envelope text-primary me-2"></i> contact@ecoledusavon.com</li>
+              <li><i class="fa-solid fa-clock text-primary me-2"></i> Lun - Sam : 08h00 - 18h00</li>
             </ul>
+          </div>
+
+        </div>
+
+        <hr class="border-secondary mt-5 mb-3">
+        <div class="row align-items-center small text-center">
+          <div class="col-12 col-md-6 mb-2 mb-md-0" style="color:#C9C2B4;">
+            &copy; 2026 Ecole du Savon du Sénégal. Tous droits réservés.
+          </div>
+          <div class="col-12 col-md-6 text-md-end">
+            <a href="#" class="text-decoration-none text-secondary me-3">Mentions légales</a>
+            <a href="#" class="text-decoration-none text-secondary">Politique de confidentialité</a>
           </div>
         </div>
-        <hr class="border-secondary mt-4 mb-3">
-        <div class="text-center small text-secondary">&copy; 2026 École du Savon du Sénégal. Tous droits réservés.</div>
       </div>
     </footer>
 
@@ -287,7 +433,7 @@ if (window.location.hostname === "babacar053.github.io") {
     document.addEventListener("DOMContentLoaded", function () {
 
       /* =========================================================
-         ⚠️ Lien Wave Business (corrigé : plus de point/espace final)
+         ⚠️ Lien Wave Business
       ========================================================= */
       const WAVE_LINK = "https://pay.wave.com/m/M_sn_Nqb7B31nqJqg/c/sn/";
 
@@ -327,19 +473,19 @@ if (window.location.hostname === "babacar053.github.io") {
 
         grid.innerHTML = filtres.map(p => `
           <div class="col-12 col-sm-6 col-lg-4">
-            <div class="card produit-card shadow-sm position-relative">
+            <div class="card produit-card position-relative">
               ${!p.stock ? '<span class="badge bg-secondary badge-stock">Rupture de stock</span>' : ''}
               <div class="img-wrap">
                 <img src="${p.image}" alt="${escapeHtml(p.nom)}" loading="lazy"
-                     onerror="this.src='https://via.placeholder.com/400x400/f0f0f0/999999?text=Photo+a+venir'">
+                     onerror="this.src='https://via.placeholder.com/400x400/ECE0C4/5B5448?text=Photo+a+venir'">
               </div>
               <div class="card-body d-flex flex-column">
                 <h6 class="fw-bold mb-1">${escapeHtml(p.nom)}</h6>
-                <p class="text-muted small mb-2">${escapeHtml(p.desc)}</p>
+                <p class="small mb-2">${escapeHtml(p.desc)}</p>
                 <div class="mt-auto d-flex justify-content-between align-items-center">
                   <span class="fw-bold text-success fs-5">${p.prix.toLocaleString()} FCFA</span>
                   <button class="btn btn-success btn-sm ${!p.stock ? 'disabled' : ''}" onclick="ajouterAuPanier(${p.id})">
-                    <i class="bi bi-cart-plus"></i> Ajouter
+                    <i class="fa-solid fa-cart-plus"></i> Ajouter
                   </button>
                 </div>
               </div>
@@ -413,21 +559,21 @@ if (window.location.hostname === "babacar053.github.io") {
         document.getElementById("cartTotal").textContent = totalPrix.toLocaleString() + " FCFA";
 
         if (panier.length === 0) {
-          list.innerHTML = '<p class="text-muted text-center py-4">Votre panier est vide.</p>';
+          list.innerHTML = '<p class="text-center py-4">Votre panier est vide.</p>';
           return;
         }
 
         list.innerHTML = panier.map(item => `
           <div class="cart-item-row">
-            <img src="${item.image}" alt="${escapeHtml(item.nom)}" onerror="this.src='https://via.placeholder.com/56/f0f0f0/999999?text=%20'">
+            <img src="${item.image}" alt="${escapeHtml(item.nom)}" onerror="this.src='https://via.placeholder.com/56/ECE0C4/5B5448?text=%20'">
             <div class="flex-grow-1">
               <div class="fw-semibold small">${escapeHtml(item.nom)}</div>
-              <div class="text-muted small">${item.prix.toLocaleString()} FCFA</div>
+              <div class="small">${item.prix.toLocaleString()} FCFA</div>
               <div class="d-flex align-items-center gap-2 mt-1">
                 <button class="qty-btn" onclick="window._modifierQuantite(${item.id}, -1)">−</button>
                 <span>${item.quantite}</span>
                 <button class="qty-btn" onclick="window._modifierQuantite(${item.id}, 1)">+</button>
-                <button class="btn btn-link text-danger p-0 ms-2" onclick="window._retirerArticle(${item.id})"><i class="bi bi-trash"></i></button>
+                <button class="btn btn-link text-danger p-0 ms-2" onclick="window._retirerArticle(${item.id})"><i class="fa-solid fa-trash"></i></button>
               </div>
             </div>
           </div>
