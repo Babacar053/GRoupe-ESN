@@ -73,7 +73,7 @@ if (window.location.hostname === "babacar053.github.io") {
          TOKENS — identiques à index.html (palette karité, olive,
          argile, miel) pour une cohérence visuelle totale.
       ═══════════════════════════════════════════════════════════ */
-      :root {
+      /* :root {
         --savon-cream:      #F6EFDE;
         --savon-cream-deep: #ECE0C4;
         --savon-ink:        #2E2A24;
@@ -89,7 +89,24 @@ if (window.location.hostname === "babacar053.github.io") {
         --savon-gold-tint:   #F1E3C0;
         --savon-radius:      1.1rem;
         --savon-radius-lg:   1.6rem;
-      }
+      } */
+       :root {
+  --savon-cream:      #FFFFFF;   /* fond principal → blanc pur */
+  --savon-cream-deep: #F5F5F5;   /* fond légèrement grisé */
+  --savon-ink:        #313131;   /* texte principal → gris foncé Jumia */
+  --savon-ink-soft:   #5B5B5B;   /* texte secondaire */
+  --savon-olive:       #F55203;  /* couleur d'accent principale → orange Jumia */
+  --savon-olive-dark:  #C4410A;  /* orange plus foncé (hover) */
+  --savon-olive-tint:  #FDE7DB;  /* fond teinté orange clair */
+  --savon-clay:        #F55203;  /* garder cohérent avec l'orange principal */
+  --savon-clay-dark:   #C4410A;
+  --savon-clay-tint:   #FDE7DB;
+  --savon-gold:        #313131;  /* remplace le doré par le gris foncé Jumia */
+  --savon-gold-dark:   #1A1A1A;
+  --savon-gold-tint:   #E8E8E8;
+  --savon-radius:      1.1rem;
+  --savon-radius-lg:   1.6rem;
+}
 
       * { scroll-behavior: smooth; }
 
