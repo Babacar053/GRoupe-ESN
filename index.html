@@ -179,7 +179,7 @@ if (window.location.hostname === "babacar053.github.io") {
   --savon-radius-lg:   1.6rem;
 }
 
-    * { scroll-behavior: smooth; }
+   html { scroll-behavior: smooth; }
 
     body {
       background-color: var(--savon-cream);
@@ -444,15 +444,21 @@ if (window.location.hostname === "babacar053.github.io") {
       class="d-block w-100"
       alt="Savons naturels">
   </div>
+  <div class="carousel-item">
+    <img
+      src="carousel/image1.png"
+      class="d-block w-100"
+      alt="Fabrication de savon"
+      loading="lazy">
+  </div>
 
   <div class="carousel-item">
     <img
       src="carousel/image1.png"
       class="d-block w-100"
-      alt="Fabrication de savon">
+      alt="Produits naturels"
+      loading="lazy">
   </div>
-
-  <div class="carousel-item">
     <img
       src="carousel/image1.png"
       class="d-block w-100"
@@ -890,7 +896,7 @@ title="Discutez avec nous sur WhatsApp">
             <div class="col-12 col-md-4">
                 <div class="card h-100 overflow-hidden">
                     <div class="position-relative bg-dark" style="height: 240px;">
-                        <video class="w-100 h-100 object-fit-cover" autoplay muted loop playsinline controls>
+                        <video class="w-100 h-100 object-fit-cover" muted loop playsinline controls preload="metadata">
                             <source src="temoignage/BabacarPrestige.mp4" type="video/mp4">
                             Votre navigateur ne supporte pas la lecture de vidéos.
                         </video>
