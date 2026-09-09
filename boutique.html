@@ -169,18 +169,74 @@ if (window.location.hostname === "babacar053.github.io") {
       .cat-tabs .btn { border-radius:50px; font-weight:600; font-size:.9rem; }
 
       /* ─── CARTES PRODUITS ─── */
-      .produit-card {
-        border: 1px solid var(--savon-cream-deep) !important;
-        border-radius: var(--savon-radius-lg) !important;
-        overflow:hidden; height:100%; background:#fff;
-        box-shadow: 0 10px 30px -18px rgba(46,42,36,.35);
-        transition: transform .25s ease, box-shadow .25s ease;
-      }
-      .produit-card:hover { transform:translateY(-6px); box-shadow: 0 18px 36px -16px rgba(46,42,36,.4); }
-      .produit-card .img-wrap { aspect-ratio:1/1; background: var(--savon-cream-deep); display:flex; align-items:center; justify-content:center; overflow:hidden; }
-      .produit-card .img-wrap img { width:100%; height:100%; object-fit:cover; }
-      .produit-card .badge-stock { position:absolute; top:10px; left:10px; }
-      .produit-card .text-success { color: var(--savon-olive) !important; }
+      /* ─── CARTES PRODUITS — style Jumia ─── */
+.produit-card {
+  border: 1px solid #E8E8E8 !important;
+  border-radius: 6px !important;
+  overflow: hidden;
+  height: 100%;
+  background: #fff;
+  box-shadow: none;
+  transition: box-shadow .2s ease, border-color .2s ease;
+  position: relative;
+}
+.produit-card:hover {
+  transform: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,.1);
+  border-color: #D8D8D8 !important;
+}
+.produit-card .img-wrap {
+  aspect-ratio: 1/1;
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  padding: 12px;
+}
+.produit-card .img-wrap img {
+  width: 100%; height: 100%; object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.produit-card .badge-stock {
+  position: absolute; top: 8px; left: 8px;
+  background: var(--savon-olive); color: #fff;
+  font-size: .68rem; font-weight: 700;
+  padding: 3px 8px; border-radius: 3px;
+  text-transform: uppercase; letter-spacing: .02em;
+}
+.produit-card .card-body {
+  padding: .85rem .9rem 1rem;
+}
+.produit-card h6 {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: .85rem;
+  line-height: 1.3;
+  color: #333;
+  min-height: 2.2em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.produit-card .price-row {
+  display: flex; align-items: baseline; gap: .4rem; margin: .4rem 0 .7rem;
+}
+.produit-card .price-current {
+  font-size: 1.15rem; font-weight: 700; color: var(--savon-olive);
+}
+.produit-card .btn-add {
+  width: 100%;
+  background: var(--savon-olive);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: .5rem;
+  font-size: .82rem;
+  font-weight: 600;
+  transition: background .2s ease;
+}
+.produit-card .btn-add:hover { background: var(--savon-olive-dark); }
+.produit-card .text-success { color: var(--savon-olive) !important; }
 
       /* ─── PANIER FLOTTANT ─── */
       .cart-fab {
@@ -188,7 +244,7 @@ if (window.location.hostname === "babacar053.github.io") {
         width:60px; height:60px; border-radius:50px; background: var(--savon-olive); color:#fff;
         display:flex; align-items:center; justify-content:center; font-size:1.5rem;
         box-shadow: 0 10px 24px -8px rgba(65,74,46,.55); border:none; transition:.25s ease;
-      }
+      } 
       .cart-fab:hover { transform:scale(1.08); background: var(--savon-olive-dark); }
       .cart-fab .cart-count {
         position:absolute; top:-4px; right:-4px; background: var(--savon-clay); color:#fff;
@@ -492,26 +548,25 @@ if (window.location.hostname === "babacar053.github.io") {
         noResults.classList.add("d-none");
 
         grid.innerHTML = filtres.map(p => `
-          <div class="col-12 col-sm-6 col-lg-4">
-            <div class="card produit-card position-relative">
-              ${!p.stock ? '<span class="badge bg-secondary badge-stock">Rupture de stock</span>' : ''}
-              <div class="img-wrap">
-                <img src="${p.image}" alt="${escapeHtml(p.nom)}" loading="lazy"
-                     onerror="this.src='https://via.placeholder.com/400x400/ECE0C4/5B5448?text=Photo+a+venir'">
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h6 class="fw-bold mb-1">${escapeHtml(p.nom)}</h6>
-                <p class="small mb-2">${escapeHtml(p.desc)}</p>
-                <div class="mt-auto d-flex justify-content-between align-items-center">
-                  <span class="fw-bold text-success fs-5">${p.prix.toLocaleString()} FCFA</span>
-                  <button class="btn btn-success btn-sm ${!p.stock ? 'disabled' : ''}" onclick="ajouterAuPanier(${p.id})">
-                    <i class="fa-solid fa-cart-plus"></i> Ajouter
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        `).join("");
+  <div class="col-6 col-sm-6 col-lg-3">
+    <div class="card produit-card">
+      ${!p.stock ? '<span class="badge-stock">Rupture</span>' : ''}
+      <div class="img-wrap">
+        <img src="${p.image}" alt="${escapeHtml(p.nom)}" loading="lazy"
+             onerror="this.src='https://via.placeholder.com/400x400/FFFFFF/5B5B5B?text=Photo+a+venir'">
+      </div>
+      <div class="card-body">
+        <h6>${escapeHtml(p.nom)}</h6>
+        <div class="price-row">
+          <span class="price-current">${p.prix.toLocaleString()} FCFA</span>
+        </div>
+        <button class="btn-add ${!p.stock ? 'disabled' : ''}" onclick="ajouterAuPanier(${p.id})">
+          <i class="fa-solid fa-cart-plus"></i> Ajouter au panier
+        </button>
+      </div>
+    </div>
+  </div>
+`).join("");
       }
 
       function escapeHtml(str) {
