@@ -312,11 +312,22 @@ if (window.location.hostname === "babacar053.github.io") {
     .faq-item[open] summary::after { content: "−"; }
 
     /* ─── PARTENAIRES ─── */
-    .partenaire-box {
-      width: 200px; height: 120px; background-color: #ffffff;
-      border: 1px solid var(--savon-cream-deep); border-radius: var(--savon-radius);
-      display: flex; align-items: center; justify-content: center; transition: transform .3s ease;
-    }
+  .partenaire-box {
+  width: 160px; height: 100px; background-color: #ffffff;
+  border: 1px solid var(--savon-cream-deep); border-radius: var(--savon-radius);
+  display: flex; align-items: center; justify-content: center; transition: transform .3s ease;
+  flex-shrink: 0;
+}
+@media (max-width: 767px) {
+  .carousel-item .d-flex.justify-content-center.align-items-center.gap-4.flex-wrap {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    justify-content: flex-start !important;
+    padding: 0 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .partenaire-box { width: 140px; height: 90px; }
+}
     .partenaire-box:hover { transform: scale(1.05); }
     .logo-partenaire { max-width: 100%; max-height: 90px; object-fit: contain; }
     .custom-control { width: 5%; }
