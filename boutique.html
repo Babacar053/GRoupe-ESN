@@ -312,7 +312,37 @@ if (window.location.hostname === "babacar053.github.io") {
         <h1 class="fw-bold">Notre Boutique</h1>
         <p class="mx-auto" style="max-width:600px;">Moules, thermomètres et accessoires pour vos fabrications de savon, livrés à Dakar.</p>
       </header>
+          <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++
+                    barre de recherches
+          ++++++++++++++++++++++++++++++++++++++++++++++=+++           -->
+                <div class="container mb-3">
+        <div class="mx-auto" style="max-width:500px;">
+          <div class="input-group">
+            <span class="input-group-text bg-white border-end-0">
+              <i class="fa-solid fa-magnifying-glass" style="color:var(--savon-ink-soft);"></i>
+            </span>
+            <input type="text" id="searchInput" class="form-control border-start-0"
+                   placeholder="Rechercher un produit..." aria-label="Rechercher un produit">
+          </div>
+        </div>
+      </div>
 
+      <div class="container mb-4">
+        <div class="cat-tabs justify-content-center" id="catTabs">
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <!-- fin barre de recherche -->
       <div class="container mb-4">
         <div class="cat-tabs justify-content-center" id="catTabs">
           <button class="btn btn-success" data-cat="tous">Tous les produits</button>
@@ -512,6 +542,7 @@ if (window.location.hostname === "babacar053.github.io") {
           }
         });
       }
+     
 
       /* PRODUITS */
       const produits = [
@@ -526,14 +557,20 @@ if (window.location.hostname === "babacar053.github.io") {
         { id: 9, nom: "Moule professionnel pour production semi-industrielle", categorie: "moules", prix: 40000, image: "shop/moule-professionnelle.jpg", desc: "Pour des barres régulières et un rendu professionnel.", stock: true },
       ];
 
-      let panier = JSON.parse(localStorage.getItem("panier_boutique")) || [];
-      let categorieActive = "tous";
-
+      // let panier = JSON.parse(localStorage.getItem("panier_boutique")) || [];
+      // let categorieActive = "tous";
+              let panier = JSON.parse(localStorage.getItem("panier_boutique")) || [];
+           let categorieActive = "tous";
+            let recherche = "";
       function renderProduits() {
         const grid = document.getElementById("produitsGrid");
         const noResults = document.getElementById("noResults");
-        const filtres = categorieActive === "tous" ? produits : produits.filter(p => p.categorie === categorieActive);
-
+        // const filtres = categorieActive === "tous" ? produits : produits.filter(p => p.categorie === categorieActive);
+                 let filtres = categorieActive === "tous" ? produits : produits.filter(p => p.categorie === categorieActive);
+        if (recherche.trim() !== "") {
+          const q = recherche.trim().toLowerCase();
+          filtres = filtres.filter(p => p.nom.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q));
+        }
         if (filtres.length === 0) {
           grid.innerHTML = "";
           noResults.classList.remove("d-none");
@@ -574,6 +611,10 @@ if (window.location.hostname === "babacar053.github.io") {
           categorieActive = this.dataset.cat;
           renderProduits();
         });
+      });
+            document.getElementById("searchInput").addEventListener("input", function () {
+        recherche = this.value;
+        renderProduits();
       });
 
       window.ajouterAuPanier = function (id) {
