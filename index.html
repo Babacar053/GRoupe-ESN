@@ -389,22 +389,33 @@ if (window.location.hostname === "babacar053.github.io") {
     🔇
   </button>
  
-  <script>
+    <script>
     const bgMusic = document.getElementById('bgMusic');
     const musicToggle = document.getElementById('musicToggle');
-    let musicPlaying = false;
 
+    // Bouton musique : si on lance la musique, on coupe toutes les vidéos
     musicToggle.addEventListener('click', function() {
-      if (musicPlaying) {
-        bgMusic.pause();
-        musicToggle.textContent = '🔇';
-      } else {
+      if (bgMusic.paused) {
+        document.querySelectorAll('video').forEach(function(v) { v.pause(); });
         bgMusic.volume = 0.9;
         bgMusic.play();
-        musicToggle.textContent = '🔊';
+      } else {
+        bgMusic.pause();
       }
-      musicPlaying = !musicPlaying;
     });
+
+    // L'icône suit l'état réel de la musique
+    bgMusic.addEventListener('play',  function() { musicToggle.textContent = '🔊'; });
+    bgMusic.addEventListener('pause', function() { musicToggle.textContent = '🔇'; });
+
+    // Quand une vidéo démarre : on coupe la musique et les autres vidéos
+    document.addEventListener('play', function(e) {
+      if (e.target.tagName !== 'VIDEO') return;
+      bgMusic.pause();
+      document.querySelectorAll('video').forEach(function(v) {
+        if (v !== e.target) v.pause();
+      });
+    }, true);
   </script>
 
   <body>
@@ -755,6 +766,25 @@ if (window.location.hostname === "babacar053.github.io") {
                   <h3 class="h5 fw-bold mb-1">Réalisation d'un savon à froid</h3>
                   <p class="text-primary fw-semibold small mb-3">Saponification à froid (SAF) à l'atelier</p>
                   <p class="small mb-0">Découvrez en vidéo les étapes de fabrication d'un savon par saponification à froid, telles qu'on les pratique pendant la formation.</p>
+                </div>
+              </div>
+            </div>
+                     <!-- VIDÉO FORMATION À DOMICILE MBAO -->
+            <div class="col-12 col-md-4">
+              <div class="card h-100 overflow-hidden">
+                <div class="position-relative bg-dark" style="height: 240px;">
+                  <video class="w-100 h-100 object-fit-cover" muted loop playsinline controls preload="metadata" poster="temoignage/video3-poster.jpg">
+                    <source src="temoignage/video3.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                  </video>
+                  <span class="position-absolute bottom-0 start-0 m-3 badge bg-dark bg-opacity-75 rounded-pill px-3 py-2">
+                    À domicile
+                  </span>
+                </div>
+                <div class="card-body p-4">
+                  <h3 class="h5 fw-bold mb-1">Formation à domicile à Mbao</h3>
+                  <p class="text-primary fw-semibold small mb-3">Théorique et pratique</p>
+                  <p class="small mb-0">Découvrez en vidéo une formation à domicile à Mbao, alliant théorie et pratique, pour apprendre à fabriquer du savon directement chez vous.</p>
                 </div>
               </div>
             </div>
